@@ -1,0 +1,28 @@
+.movies {
+  width: 300px;
+}
+
+.movies img {
+  transition: all 0.6s;
+}
+
+.movie-poster {
+  /*   max-height: 422px; */
+  object-fit: cover;
+}
+
+.movies img:hover {
+  transform: scale(115%);
+  transition-duration: 0.6s;
+  cursor: pointer;
+}
+
+.no-image {
+  height: 390px;
+  width: auto;
+}
+
+.loading-image {
+  background: #000;
+  opacity: 0.3;
+}

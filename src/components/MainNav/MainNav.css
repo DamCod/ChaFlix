@@ -1,0 +1,22 @@
+html {
+  font-family: "Roboto", sans-serif;
+  font-family: "Ubuntu", sans-serif;
+}
+
+nav {
+  z-index: 1;
+}
+
+.navbar {
+  height: 9ch;
+  background: linear-gradient(
+    0deg,
+    rgba(34, 193, 195, 0) 0%,
+    rgba(0, 0, 0, 0.9) 70%
+  );
+  transition: all 1s;
+}
+
+.navbar.active {
+  background: #000;
+}
