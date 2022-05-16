@@ -31,6 +31,25 @@
   object-fit: cover;
 }
 
+.poster-expand {
+  display: none;
+}
+
+.poster-img-container:hover > div.poster-expand {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.6);
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  transition: all 0.6s ease-in-out;
+  cursor: pointer;
+}
+
+.poster-img-container:hover > div.poster-img {
+  filter: blur(5px);
+}
+
 .header-gradient {
   position: absolute;
   left: 0;
@@ -52,7 +71,7 @@
   color: rgb(176, 176, 176);
 }
 
-.release::before {
+.genres::before {
   content: " ‧ ";
   display: inline-flex;
   align-content: center;

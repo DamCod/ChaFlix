@@ -9,7 +9,8 @@ import Chip from "@mui/material/Chip";
 import Stack from "@mui/material/Stack";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { Button, Modal } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import ScrollToTopBtn from "../components/ScrollToTopBtn/ScrollToTopBtn";
 
 const responsive = {
   desktop: {
@@ -103,15 +104,22 @@ function Movie() {
             alt="background-image"
           />
           <div className="row align-items-center pt-5 px-5 movie-details position-relative mt-5">
-            <div className="col-3">
+            <div className="col-3 poster-img-container position-relative p-0">
               <img
-                onClick={handleShow}
-                className="img-fluid rounded-3 w-100 h-100"
+                className="poster-img img-fluid rounded-3 w-100 h-100"
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
               />
+              <div
+                onClick={handleShow}
+                className="poster-expand rounded w-100 h-100"
+              >
+                <span>
+                  <i class="bi bi-zoom-in"></i>Expand
+                </span>
+              </div>
             </div>
-            <div className="col-9 mt-5">
+            <div className="col-9">
               <div className="d-flex flex-column">
                 <div className="d-flex align-items-center">
                   <h1 className="text-start fs-2" style={styles.h1}>
@@ -125,18 +133,6 @@ function Movie() {
                   </h1>
                 </div>
                 <div className="d-flex align-items-center facts text-start">
-                  <span className="genres">
-                    <Stack direction="row" spacing={1}>
-                      {movie.genres &&
-                        movie.genres.map((genre) => (
-                          <Chip
-                            key={genre.name}
-                            color="error"
-                            label={genre.name}
-                          />
-                        ))}
-                    </Stack>
-                  </span>
                   <span className="release">
                     {Object.keys(movie).length > 0 &&
                       movie.release_date.replace(/-/g, "/") +
@@ -145,7 +141,12 @@ function Movie() {
                         Object.values(movie.production_countries[0])[0] +
                         ")"}
                   </span>
-
+                  <span className="genres">
+                    {Object.keys(movie).length > 0 &&
+                      movie.genres.map((genre, i) =>
+                        i > 0 ? ", " + genre.name : genre.name
+                      )}
+                  </span>
                   <span className="runtime">{movieRuntime(movie.runtime)}</span>
                 </div>
                 <div className="d-flex align-items-center">
@@ -219,7 +220,7 @@ function Movie() {
                   i <= 10 && (
                     <div
                       key={cast.name}
-                      className="cast-card w-100 text-white pb-4 rounded-3 border border-danger"
+                      className="cast-card w-100 text-white pb-4 rounded-3 border border-danger shadow"
                       style={styles.cardBody}
                     >
                       {cast.profile_path ? (
@@ -276,6 +277,7 @@ function Movie() {
           />
         </Modal.Body>
       </Modal>
+      <ScrollToTopBtn />
     </>
   );
 }
