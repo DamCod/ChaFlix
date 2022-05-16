@@ -7,7 +7,6 @@
 }
 
 .movie-poster {
-  /*   max-height: 422px; */
   object-fit: cover;
 }
 
