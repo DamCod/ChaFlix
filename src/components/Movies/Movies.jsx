@@ -19,7 +19,7 @@ function Movies({ movies, title }) {
             )}
             <Link
               to={`/movies/${movie.id}`}
-              className={`${isLoading && "d-none"}text-decoration-none`}
+              className={`${isLoading && "d-none"} text-decoration-none`}
             >
               {movie.poster_path ? (
                 <img
@@ -30,7 +30,7 @@ function Movies({ movies, title }) {
                 />
               ) : (
                 <div className="no-image bg-secondary d-flex align-items-center justify-content-center text-white rounded shadow">
-                  <p>{movie.title}</p>
+                  <p className="fs-4">{movie.title}</p>
                 </div>
               )}
             </Link>

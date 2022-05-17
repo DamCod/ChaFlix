@@ -1,0 +1,37 @@
+.review-profile-pic {
+  height: 65px;
+  width: 65px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.review-profile-pic img {
+  object-fit: cover;
+}
+
+.review-container {
+  border: 2px solid rgb(18, 18, 18);
+  background-color: rgb(39, 39, 39);
+  height: 80vh;
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 12px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(191, 7, 7, 0.5);
+  background-color: rgb(147, 45, 45);
+}
+
+.review-content {
+  margin-left: 83px;
+}

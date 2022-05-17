@@ -17,9 +17,8 @@
   overflow: hidden;
 }
 
-.poster-expand {
+div.poster-expand {
   display: none;
-  animation: fadeOut 0.5s;
 }
 
 .poster-img-container:hover > div.poster-expand {
@@ -30,16 +29,7 @@
   position: absolute;
   top: 0;
   cursor: pointer;
-  animation: fadeIn 0.4s ease-in-out;
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+  animation: fadeIn 0.4s ease-in;
 }
 
 .poster-img-container:hover > .poster-img {
@@ -100,29 +90,7 @@
   font-size: 1rem;
 }
 
-.carousel-container {
-  background-color: rgb(39, 39, 39);
-  border: 2px solid rgb(18, 18, 18);
-}
-
-.cast-card {
-  background-color: rgba(0, 0, 0, 0.6);
-  max-height: 24rem;
-}
-
-.card-img-top {
-  object-fit: cover;
-  object-position: 0 0;
-}
-
-.cast-card-body h5 {
-  font-size: 1.2rem;
-}
-.cast-card-body p {
-  font-size: 1rem;
-}
-
-.view-more-cast:hover {
-  color: brown;
-  cursor: pointer;
+.title {
+  font-size: 5rem;
+  line-height: 1;
 }

@@ -1,0 +1,52 @@
+.carousel-container {
+  background-color: rgb(39, 39, 39);
+  border: 2px solid rgb(18, 18, 18);
+}
+
+.cast-card {
+  background-color: rgba(0, 0, 0, 0.6);
+  max-height: 26rem;
+}
+
+.card-img-top {
+  object-fit: cover;
+  object-position: 0 0;
+  max-height: 320px;
+}
+
+.cast-card-body h5 {
+  font-size: 1.2rem;
+}
+.cast-card-body p {
+  font-size: 1rem;
+}
+
+.view-more-cast p:hover {
+  color: brown;
+  cursor: pointer;
+}
+
+.carousel-arrow {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.65);
+  border: none;
+  font-size: 5rem;
+}
+
+.carousel-arrow:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+.carousel-container:hover > .carousel-arrow {
+  display: block;
+  animation: fadeIn 0.6s;
+}
+
+.carousel-arrow-right {
+  right: 0;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.carousel-arrow-left {
+  color: rgba(255, 255, 255, 0.65);
+}
