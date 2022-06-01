@@ -18,12 +18,15 @@ function Movie() {
   const [writer, setWriter] = useState([]);
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     const getMovie = async () => {
       const { data } = await axios.get(`/movie/${params.id}`, tmdbApiConfig);
+      console.log(data);
       setMovie(data);
     };
     getMovie();
   }, [params.id]);
+
   const StyledRating = styled(Rating)({
     "& .MuiRating-iconEmpty": {
       color: "#fff",
@@ -42,6 +45,10 @@ function Movie() {
     setZoom(false);
   };
 
+  function getCountryCode(countryName) {
+    return process.env.REACT_APP_FLAG_ICONS_URL + countryName;
+  }
+
   return (
     <>
       <div className="container-fluid movie-page-container text-white p-0">
@@ -50,10 +57,10 @@ function Movie() {
           <img
             className="header-bg-img img-fluid w-100 h-100"
             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
-            alt="background-image"
+            alt="background"
           />
-          <div className="row align-items-center pt-5 px-4 mx-4 movie-details position-relative mt-5 gx-5">
-            <div className="col-3 poster-img-container position-relative p-0">
+          <div className="row justify-content-center align-items-center py-5 movie-details position-relative mt-5 gx-5">
+            <div className="col-3 poster-img-container position-relative p-0 me-4 shadow">
               <img
                 className="poster-img img-fluid rounded-3 w-100 h-100"
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
@@ -68,7 +75,7 @@ function Movie() {
                 </span>
               </div>
             </div>
-            <div className="col-9">
+            <div className="col-6 pe-0">
               <div className="d-flex flex-column">
                 <div className="d-flex align-items-center">
                   <h1 className="title text-start fs-2">
@@ -82,13 +89,33 @@ function Movie() {
                   </h1>
                 </div>
                 <div className="d-flex align-items-center facts text-start">
+                  <span>
+                    <img
+                      src={
+                        Object.keys(movie).length > 0 &&
+                        getCountryCode(
+                          Object.values(
+                            movie.production_countries[0]
+                          )[0].toLowerCase()
+                        )
+                      }
+                      className="country img-fluid"
+                      alt={
+                        "production country code:" + Object.keys(movie).length >
+                        0
+                          ? Object.values(movie.production_countries[0])
+                          : ""
+                      }
+                    />
+                  </span>
+
                   <span className="release">
                     {Object.keys(movie).length > 0 &&
-                      movie.release_date.replace(/-/g, "/") +
-                        " " +
-                        "(" +
-                        Object.values(movie.production_countries[0])[0] +
-                        ")"}
+                      movie.release_date
+                        .replace(/-/g, "/")
+                        .split("/")
+                        .reverse()
+                        .join("/")}
                   </span>
                   <span className="genres">
                     {Object.keys(movie).length > 0 &&
@@ -121,7 +148,9 @@ function Movie() {
                   </button>
                 </div>
               </div>
-              <p className="text-start tagline">{movie.tagline}</p>
+              {movie.tagline && (
+                <p className="text-start tagline">"{movie.tagline}"</p>
+              )}
               <h3 className="fs-5 text-start">
                 <strong>Overview</strong>
               </h3>
@@ -149,13 +178,22 @@ function Movie() {
             </div>
           </div>
         </div>
-        <Cast
-          movieId={params.id}
-          setWriter={setWriter}
-          setDirector={setDirector}
-        />
-        <Reviews movieId={params.id} />
-        <RecommendedMovies movieId={params.id} />
+
+        <div className="row h-100 mt-5 py-0 px-5 g-3">
+          <div className="col-9 h-100">
+            <Cast
+              className="mt-4"
+              movieId={params.id}
+              setWriter={setWriter}
+              setDirector={setDirector}
+            />
+            <hr className="mt-5 mx-5 bg-secondary" />
+            <Reviews movieId={params.id} />
+          </div>
+          <div className="col-3 h-100">
+            <RecommendedMovies movieId={params.id} />
+          </div>
+        </div>
       </div>
 
       <Modal show={zoom} onHide={handleClose} centered>

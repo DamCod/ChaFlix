@@ -10,7 +10,6 @@ import ScrollToTopBtn from "../components/ScrollToTopBtn/ScrollToTopBtn";
 function Home() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
-  const [genre, setGenre] = useState(null);
 
   useEffect(() => {
     const getMovies = async () => {
@@ -38,7 +37,7 @@ function Home() {
       <Header movies={movies} />
       <div className="container-fluid px-5 mt-3 position-relative">
         <div className="row g-4 justify-content-center" style={styles.div}>
-          <Genres setGenre={setGenre} setMovies={setMovies} />
+          <Genres setMovies={setMovies} />
           <Movies movies={movies} />
         </div>
       </div>

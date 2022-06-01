@@ -2,7 +2,9 @@ import React from "react";
 
 function CustomRightArrow({ onClick, ...rest }) {
   const {
+    // eslint-disable-next-line
     onMove,
+    // eslint-disable-next-line
     carouselState: { currentSlide, deviceType },
   } = rest;
   return (

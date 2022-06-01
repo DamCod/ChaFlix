@@ -5,13 +5,12 @@
 
 .cast-card {
   background-color: rgba(0, 0, 0, 0.6);
-  max-height: 26rem;
+  height: 24rem;
 }
 
 .card-img-top {
   object-fit: cover;
   object-position: 0 0;
-  max-height: 320px;
 }
 
 .cast-card-body h5 {
@@ -49,4 +48,8 @@
 
 .carousel-arrow-left {
   color: rgba(255, 255, 255, 0.65);
+}
+
+.no-cast-image {
+  height: 74%;
 }

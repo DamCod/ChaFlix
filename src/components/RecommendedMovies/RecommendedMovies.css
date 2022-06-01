@@ -1,0 +1,42 @@
+.recommendations {
+  border: 2px solid rgb(18, 18, 18);
+  background-color: rgb(39, 39, 39);
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+.recommendation-container {
+  width: 100%;
+  position: relative;
+  cursor: pointer;
+}
+
+.recommendation-container:hover .recommendation-rating {
+  display: block;
+}
+
+.recommendation-container img {
+  object-fit: cover;
+}
+
+.recommendation-title {
+  color: aliceblue;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  text-align: start;
+}
+
+.recommendation-title p {
+  margin-bottom: 0;
+}
+
+.recommendation-rating {
+  display: none;
+}

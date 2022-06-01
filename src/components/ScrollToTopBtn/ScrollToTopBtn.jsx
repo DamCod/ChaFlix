@@ -5,7 +5,7 @@ function ScrollToTopBtn() {
   const [scrollBtn, setScrollBtn] = useState(false);
 
   const showScrollBtn = () => {
-    if (window.scrollY >= 1000) {
+    if (window.scrollY > 900) {
       setScrollBtn(true);
     } else {
       setScrollBtn(false);

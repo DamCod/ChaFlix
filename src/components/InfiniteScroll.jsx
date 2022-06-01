@@ -15,6 +15,7 @@ function InfiniteScroll({ setPage, page }) {
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
+    // eslint-disable-next-line
   }, [page]);
 
   return <></>;

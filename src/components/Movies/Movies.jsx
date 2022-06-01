@@ -11,7 +11,7 @@ function Movies({ movies, title }) {
         <p className="text-white">No se encontró película</p>
       ) : (
         movies.map((movie) => (
-          <div key={movie.id} className="col-lg-6 col-md-4 col-sm-4 movies">
+          <div key={movie.id} className="col-4 movies">
             {isLoading && (
               <div className="d-flex justify-content-center align-items-center no-image loading-image rounded shadow">
                 <Spinner animation="border" variant="danger" />
@@ -23,7 +23,7 @@ function Movies({ movies, title }) {
             >
               {movie.poster_path ? (
                 <img
-                  className="rounded shadow img-fluid movie-poster"
+                  className="rounded shadow img-fluid movie-poster w-100 h-100"
                   src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                   alt={movie.title}
                   onLoad={() => setIsLoading(false)}

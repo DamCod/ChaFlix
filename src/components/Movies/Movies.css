@@ -1,7 +1,3 @@
-.movies {
-  width: 300px;
-}
-
 .movies img {
   transition: all 0.6s;
 }
@@ -18,11 +14,17 @@
 }
 
 .no-image {
-  height: 414px;
+  height: 556px;
   width: auto;
 }
 
 .loading-image {
   background: #000;
   opacity: 0.3;
+}
+
+@media (min-width: 1280px) {
+  .movies {
+    width: 20%;
+  }
 }
