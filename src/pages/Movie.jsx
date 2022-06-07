@@ -13,6 +13,7 @@ import RecommendedMovies from "../components/RecommendedMovies/RecommendedMovies
 
 function Movie() {
   const [movie, setMovie] = useState([]);
+  const [countryFlag, setCountryFlag] = useState("");
   const params = useParams();
   const [director, setDirector] = useState([]);
   const [writer, setWriter] = useState([]);
@@ -21,8 +22,13 @@ function Movie() {
     window.scrollTo(0, 0);
     const getMovie = async () => {
       const { data } = await axios.get(`/movie/${params.id}`, tmdbApiConfig);
-      console.log(data);
       setMovie(data);
+      setCountryFlag(
+        data.production_countries.length > 0 &&
+          process.env.REACT_APP_FLAG_ICONS_URL +
+            Object.values(data.production_countries[0])[0].toLowerCase()
+      );
+      console.log(countryFlag);
     };
     getMovie();
   }, [params.id]);
@@ -44,10 +50,6 @@ function Movie() {
   const handleClose = () => {
     setZoom(false);
   };
-
-  function getCountryCode(countryName) {
-    return process.env.REACT_APP_FLAG_ICONS_URL + countryName;
-  }
 
   return (
     <>
@@ -89,25 +91,13 @@ function Movie() {
                   </h1>
                 </div>
                 <div className="d-flex align-items-center facts text-start">
-                  <span>
+                  {countryFlag && (
                     <img
-                      src={
-                        Object.keys(movie).length > 0 &&
-                        getCountryCode(
-                          Object.values(
-                            movie.production_countries[0]
-                          )[0].toLowerCase()
-                        )
-                      }
+                      src={countryFlag}
                       className="country img-fluid"
-                      alt={
-                        "production country code:" + Object.keys(movie).length >
-                        0
-                          ? Object.values(movie.production_countries[0])
-                          : ""
-                      }
+                      alt="production country flag"
                     />
-                  </span>
+                  )}
 
                   <span className="release">
                     {Object.keys(movie).length > 0 &&
@@ -179,7 +169,7 @@ function Movie() {
           </div>
         </div>
 
-        <div className="row h-100 mt-5 py-0 px-5 g-3">
+        <div className="row h-100 mt-5 py-0 pe-5 g-3">
           <div className="col-9 h-100">
             <Cast
               className="mt-4"

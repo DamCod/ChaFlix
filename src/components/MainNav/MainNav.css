@@ -8,6 +8,8 @@ nav {
 }
 
 .navbar {
+  width: 100%;
+  position: fixed;
   height: 9ch;
   background: linear-gradient(
     0deg,

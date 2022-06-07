@@ -1,18 +1,30 @@
+import "./About.css";
+import tmdbLogo from "../assets/TMDB-logo.svg";
+
 function About() {
   return (
-    <div className="container-fluid">
-      <div className="row">
+    <div className="about-page container-fluid mt-5">
+      <div className="row px-5">
         <div className="col-6"></div>
-        <div className="col-6 text-white">
-          <h1 className="text-start">About This Project</h1>
-          <p>
-            Éste proyecto fue realizado en el marco del coding bootcamp de Hack
-            Academy en febrero de 2022. La consigna consistía en desarrollar un
-            sitio que consumiera la API de{" "}
-            <a href="https://www.themoviedb.org/">TheMovieDataBase</a> y
-            mostrara un listado de películas. El sitio debía contar también con
-            un buscador de películas por título y uno por rating, y una página
-            para cada película que muestre detalles de la misma.
+        <div className="project-description col-6 text-white">
+          <h1 className="text-start">About this project</h1>
+          <p className="text-start">
+            Éste proyecto fue realizado durante un coding bootcamp en Hack
+            Academy. La consigna del ejercicio consistía en desarrollar un sitio
+            que consumiera la API de{" "}
+            <a href="https://www.themoviedb.org/">
+              <img
+                className="tmdb-logo img-fluid"
+                width="125"
+                height="10"
+                src={tmdbLogo}
+                alt="TheMovieDataBase"
+              />
+            </a>{" "}
+            y mostrara un listado de películas. El sitio debía contar también
+            con un buscador de películas y una página para cada película que
+            muestre detalles de la misma. El proyecto fue realizado utilizando
+            React.js
           </p>
         </div>
       </div>

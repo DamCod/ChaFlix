@@ -29,7 +29,7 @@ function RecommendedMovies({ movieId }) {
 
   return (
     <>
-      <h3 className="mb-3 fs-3">Recommendations</h3>
+      <h3 className="mb-3 fs-2">Recommendations</h3>
       <div className="recommendations scroll px-3 rounded-3">
         {recommendedMovies.map(
           (movie, i) =>

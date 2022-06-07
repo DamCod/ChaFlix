@@ -8,13 +8,27 @@ import { Routes, Route } from "react-router-dom";
 import Movie from "./pages/Movie";
 import NoMatch from "./pages/NoMatch";
 import Footer from "./components/Footer";
+import { useState } from "react";
 
 function App() {
+  const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
+
   return (
     <div className="App position-relative bg-dark">
-      <MainNav />
+      <MainNav setMovies={setMovies} page={page} />
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={
+            <Home
+              movies={movies}
+              setMovies={setMovies}
+              page={page}
+              setPage={setPage}
+            />
+          }
+        />
         <Route path="/movies/:id" element={<Movie />} />
         <Route path="/filter-title" element={<FilterByTitle />} />
         <Route path="/filter-rating" element={<FilterByRating />} />

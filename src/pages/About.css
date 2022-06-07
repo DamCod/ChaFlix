@@ -1,0 +1,10 @@
+.about-page {
+  height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+.tmdb-logo {
+  object-fit: cover;
+  transform: translateY(-0.5px);
+}

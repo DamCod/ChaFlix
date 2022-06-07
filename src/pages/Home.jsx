@@ -7,10 +7,7 @@ import InfiniteScroll from "../components/InfiniteScroll";
 import Genres from "../components/Genres/Genres";
 import ScrollToTopBtn from "../components/ScrollToTopBtn/ScrollToTopBtn";
 
-function Home() {
-  const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(1);
-
+function Home({ movies, setMovies, page, setPage }) {
   useEffect(() => {
     const getMovies = async () => {
       tmdbApiConfig.params.page = page;
