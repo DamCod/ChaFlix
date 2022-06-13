@@ -4,6 +4,7 @@ import axios from "axios";
 
 function Genres({ setMovies }) {
   const handleGenres = (genre) => {
+    window.scrollTo(0, 0);
     const getMovies = async () => {
       tmdbApiConfig.params.with_genres = genre;
       const { data } = await axios.get("/discover/movie", tmdbApiConfig);

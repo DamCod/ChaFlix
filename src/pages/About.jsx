@@ -4,10 +4,9 @@ import tmdbLogo from "../assets/TMDB-logo.svg";
 function About() {
   return (
     <div className="about-page container-fluid mt-5">
-      <div className="row px-5">
-        <div className="col-6"></div>
+      <div className="row align-items-center justify-content-center px-5">
         <div className="project-description col-6 text-white">
-          <h1 className="text-start">About this project</h1>
+          <h1 className="text-start text-danger h4">About this project</h1>
           <p className="text-start">
             Éste proyecto fue realizado durante un coding bootcamp en Hack
             Academy. La consigna del ejercicio consistía en desarrollar un sitio

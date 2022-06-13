@@ -28,7 +28,6 @@ function Movie() {
           process.env.REACT_APP_FLAG_ICONS_URL +
             Object.values(data.production_countries[0])[0].toLowerCase()
       );
-      console.log(countryFlag);
     };
     getMovie();
   }, [params.id]);

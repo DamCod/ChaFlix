@@ -1,15 +1,18 @@
 import Movies from "../components/Movies/Movies";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import tmdbApiConfig from "../tmdbApiConfig";
 import InfiniteScroll from "../components/InfiniteScroll";
+import ScrollToTopBtn from "../components/ScrollToTopBtn/ScrollToTopBtn";
 
-function FilterByTitle() {
-  const [title, setTitle] = useState("");
+function FilterByTitle({ title }) {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
+  let navigate = useNavigate();
 
   useEffect(() => {
+    title === "" && navigate("/");
     const getMovies = async () => {
       tmdbApiConfig.params.query = title;
       tmdbApiConfig.params.page = page;
@@ -21,33 +24,13 @@ function FilterByTitle() {
       }
     };
     title && getMovies();
+    // eslint-disable-next-line
   }, [title, page]);
 
   return (
     <>
-      <div className="container-fluid mt-3">
-        <div className="row justify-content-center">
-          <div className="my-5 d-flex justify-content-center">
-            <form className="w-25">
-              <label
-                htmlFor="searchInput"
-                className="form-label fs-5 fw-bold text-white visually-hidden"
-              >
-                Escribe el título de la película
-              </label>
-              <input
-                value={title}
-                onChange={(ev) => {
-                  setTitle(ev.target.value);
-                  setPage(1);
-                }}
-                type="text"
-                className="form-control bg-dark text-white"
-                id="searchInput"
-                placeholder="Escribe el título de la película..."
-              />
-            </form>
-          </div>
+      <div className="container-fluid mt-5">
+        <div className="row justify-content-center pt-5">
           {title ? (
             <div className="row justify-content-center mt-4 g-4">
               <Movies movies={movies} title={title} />
@@ -57,6 +40,7 @@ function FilterByTitle() {
           )}
         </div>
       </div>
+      <ScrollToTopBtn />
       <InfiniteScroll setPage={setPage} page={page} />
     </>
   );

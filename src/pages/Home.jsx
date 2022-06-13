@@ -1,13 +1,16 @@
 import Header from "../components/Header/Header";
 import Movies from "../components/Movies/Movies";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import tmdbApiConfig from "../tmdbApiConfig";
 import axios from "axios";
 import InfiniteScroll from "../components/InfiniteScroll";
 import Genres from "../components/Genres/Genres";
 import ScrollToTopBtn from "../components/ScrollToTopBtn/ScrollToTopBtn";
 
-function Home({ movies, setMovies, page, setPage }) {
+function Home() {
+  const [movies, setMovies] = useState([]);
+  const [page, setPage] = useState(1);
+
   useEffect(() => {
     const getMovies = async () => {
       tmdbApiConfig.params.page = page;
@@ -19,7 +22,7 @@ function Home({ movies, setMovies, page, setPage }) {
       }
     };
     getMovies();
-  }, [page]);
+  }, [page, setMovies]);
 
   const styles = {
     div: {
@@ -32,7 +35,7 @@ function Home({ movies, setMovies, page, setPage }) {
   return (
     <>
       <Header movies={movies} />
-      <div className="container-fluid px-5 mt-3 position-relative">
+      <div className="mt-3container-fluid px-5 position-relative">
         <div className="row g-4 justify-content-center" style={styles.div}>
           <Genres setMovies={setMovies} />
           <Movies movies={movies} />

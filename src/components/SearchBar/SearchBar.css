@@ -1,3 +1,35 @@
-.search-bar {
-  width: 1px;
+form {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid grey;
+}
+
+input {
+  flex-grow: 2;
+  border: none;
+}
+
+.search-bar:focus {
+  outline: none;
+}
+
+.clear-search-btn {
+  right: 0;
+  color: rgb(255, 255, 255);
+  border: none;
+}
+
+.clear-search-btn:hover {
+  color: #dc3545;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px #212529 inset;
+  box-shadow: 0 0 0 30px #212529 inset;
+}
+input:-webkit-autofill {
+  -webkit-text-fill-color: rgb(255, 255, 255);
 }

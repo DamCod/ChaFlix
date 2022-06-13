@@ -11,26 +11,15 @@ import Footer from "./components/Footer";
 import { useState } from "react";
 
 function App() {
-  const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(1);
+  const [title, setTitle] = useState("");
 
   return (
     <div className="App position-relative bg-dark">
-      <MainNav setMovies={setMovies} page={page} />
+      <MainNav title={title} setTitle={setTitle} />
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Home
-              movies={movies}
-              setMovies={setMovies}
-              page={page}
-              setPage={setPage}
-            />
-          }
-        />
+        <Route path="/" element={<Home />} />
         <Route path="/movies/:id" element={<Movie />} />
-        <Route path="/filter-title" element={<FilterByTitle />} />
+        <Route path="/search" element={<FilterByTitle title={title} />} />
         <Route path="/filter-rating" element={<FilterByRating />} />
         <Route path="about" element={<About />} />
         <Route path="*" element={<NoMatch />} />
