@@ -26,7 +26,7 @@ function Home() {
 
   const styles = {
     div: {
-      marginTop: "-10rem",
+      marginTop: "-12rem",
       zIndex: 9,
       position: "relative",
     },

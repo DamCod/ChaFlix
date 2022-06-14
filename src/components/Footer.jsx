@@ -9,6 +9,7 @@ function Footer() {
           <section className="mb-4">
             <a
               target="_blank"
+              rel="noreferrer"
               className="btn btn-outline-light btn-floating m-1"
               href="https://mail.google.com/mail/?view=cm&source=mailto&to=damiancancela32@gmail.com"
               role="button"
@@ -27,6 +28,7 @@ function Footer() {
 
             <a
               target="_blank"
+              rel="noreferrer"
               className="btn btn-outline-light btn-floating m-1"
               href="https://www.linkedin.com/in/damian-cancela/"
               role="button"
@@ -45,6 +47,7 @@ function Footer() {
 
             <a
               target="_blank"
+              rel="noreferrer"
               className="btn btn-outline-light btn-floating m-1"
               href="https://github.com/DamCod"
               role="button"

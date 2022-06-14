@@ -10,6 +10,7 @@ import ScrollToTopBtn from "../components/ScrollToTopBtn/ScrollToTopBtn";
 import Reviews from "../components/Reviews/Reviews";
 import Cast from "../components/Cast/Cast";
 import RecommendedMovies from "../components/RecommendedMovies/RecommendedMovies";
+import Trailer from "../components/Trailer/Trailer";
 
 function Movie() {
   const [movie, setMovie] = useState([]);
@@ -135,6 +136,7 @@ function Movie() {
                   <button className="btn btn-danger circle-button">
                     <i className="bi bi-star-fill"></i>
                   </button>
+                  <Trailer />
                 </div>
               </div>
               {movie.tagline && (

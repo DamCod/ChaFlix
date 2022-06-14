@@ -1,8 +1,12 @@
 import "./Reviews.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import tmdbApiConfig from "../../tmdbApiConfig";
 import { useState, useEffect } from "react";
 import { Badge } from "react-bootstrap";
+import { styled } from "@mui/material/styles";
+import Rating from "@mui/material/Rating";
 
 function Reviews({ movieId }) {
   const [reviews, setReviews] = useState([]);
@@ -13,17 +17,24 @@ function Reviews({ movieId }) {
         `/movie/${movieId}/reviews`,
         tmdbApiConfig
       );
-      console.log(reviewsData.data.results);
       setReviews(reviewsData.data.results);
     };
     getReviews();
   }, [movieId]);
 
+  const StyledRating = styled(Rating)({
+    "& .MuiRating-iconEmpty": {
+      color: "#fff",
+    },
+  });
+
+  const notify = () => toast("Wow so easy!");
+
   return (
     <>
-      {reviews.length > 0 && (
-        <div className="reviews-container mt-5 px-5">
-          <h3 className="text-start mb-3 fs-3">Reviews</h3>
+      <div className="reviews-container mt-5 px-5">
+        <h3 className="text-start mb-3 fs-3">Reviews</h3>
+        {reviews.length > 0 ? (
           <div className="review-container scroll px-3 rounded-3">
             {reviews.map((review, i) => (
               <div key={i} className="border rounded mx-1 my-3 p-3">
@@ -86,8 +97,31 @@ function Reviews({ movieId }) {
               </div>
             ))}
           </div>
+        ) : (
+          <p>There are no reviews for this movie yet.</p>
+        )}
+        <div className="mt-3 rounded d-flex flex-column">
+          <div className="d-flex align-items-center">
+            <p className="mb-0 me-1">Rate this movie:</p>
+            <StyledRating
+              className="my-4 me-2"
+              size="large"
+              name="simple-controlled"
+            />
+          </div>
+          <textarea
+            className="bg-dark w-100 rounded text-white p-2"
+            rows="3"
+            type="text-area"
+            name="content"
+            placeholder="What do you think about this movie?"
+          ></textarea>
+          <button className="ms-auto btn btn-danger mt-2" onClick={notify}>
+            Post review
+          </button>
         </div>
-      )}
+      </div>
+      <ToastContainer />
     </>
   );
 }

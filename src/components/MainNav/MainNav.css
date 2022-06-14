@@ -3,10 +3,6 @@ html {
   font-family: "Ubuntu", sans-serif;
 }
 
-nav {
-  z-index: 1;
-}
-
 .navbar {
   align-items: center;
   width: 100%;

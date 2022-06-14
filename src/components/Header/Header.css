@@ -15,9 +15,11 @@ header {
 }
 
 .carousel-caption {
+  top: 150px;
+  left: 50px;
   height: 100%;
   text-align: start;
-  width: 100%;
+  width: 60%;
 }
 
 .carousel-caption h3 {
@@ -30,11 +32,4 @@ header {
   font-size: 2rem;
   font-weight: 100;
   line-height: 1;
-}
-
-.caption-div {
-  position: absolute;
-  top: 30%;
-  left: -12%;
-  width: 50rem;
 }

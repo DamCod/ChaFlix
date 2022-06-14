@@ -13,7 +13,7 @@ function ScrollToTopBtn() {
   };
   useEffect(() => {
     window.addEventListener("scroll", showScrollBtn);
-  });
+  }, []);
 
   function scrollToTop() {
     window.scrollTo(0, 0);

@@ -6,7 +6,7 @@ function SearchBar({ title, setTitle }) {
 
   return (
     <>
-      <form className="position-relative rounded me-3">
+      <form className="search-form position-relative rounded me-3">
         <input
           value={title}
           onChange={(ev) => {

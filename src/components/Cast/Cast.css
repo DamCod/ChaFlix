@@ -5,7 +5,12 @@
 
 .cast-card {
   background-color: rgba(0, 0, 0, 0.6);
-  height: 24rem;
+  height: 384px;
+}
+
+.full-cast-card {
+  background-color: rgba(0, 0, 0, 0.6);
+  max-height: 512px;
 }
 
 .card-img-top {
@@ -52,4 +57,8 @@
 
 .no-cast-image {
   height: 74%;
+}
+
+.modal-90w {
+  width: 90vw;
 }

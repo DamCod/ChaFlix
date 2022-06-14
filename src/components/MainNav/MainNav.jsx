@@ -32,14 +32,12 @@ function MainNav({ setMovies, page, title, setTitle }) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="d-flex align-items-center ms-auto fs-5">
-            {(params.pathname === "/" || params.pathname === "/search") && (
-              <SearchBar
-                setMovies={setMovies}
-                page={page}
-                title={title}
-                setTitle={setTitle}
-              />
-            )}
+            <SearchBar
+              setMovies={setMovies}
+              page={page}
+              title={title}
+              setTitle={setTitle}
+            />
             <Nav.Link href="/about" className="text-decoration-none nav-link">
               About
             </Nav.Link>

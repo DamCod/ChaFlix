@@ -1,0 +1,13 @@
+.trailer-modal {
+  padding: 0;
+  background-color: none;
+}
+
+.trailer {
+  width: 100%;
+  height: 500px;
+}
+
+.trailer-btn:focus {
+  box-shadow: none;
+}

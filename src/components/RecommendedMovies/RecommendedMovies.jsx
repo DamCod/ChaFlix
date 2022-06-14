@@ -15,7 +15,6 @@ function RecommendedMovies({ movieId }) {
         `/movie/${movieId}/similar`,
         tmdbApiConfig
       );
-      console.log(recommendations.data.results);
       setRecommendedMovies(recommendations.data.results);
     };
     getRecommendations();

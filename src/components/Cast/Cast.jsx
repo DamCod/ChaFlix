@@ -121,7 +121,7 @@ function Cast({ movieId, setDirector, setWriter }) {
           </div>
         </div>
       )}
-      <Modal show={showCast} onHide={handleClose} centered>
+      <Modal size="xl" show={showCast} onHide={handleClose} centered>
         <Modal.Header
           className="bg-dark text-white"
           closeButton
@@ -131,8 +131,30 @@ function Cast({ movieId, setDirector, setWriter }) {
             <h2 className="title text-start fs-2">Cast</h2>
           </Modal.Title>
         </Modal.Header>
-        <Modal.Body className="bg-dark p-0">
-          <p>hola</p>
+        <Modal.Body className="row m-0 bg-dark g-2">
+          {cast.map((cast, i) => (
+            <div key={cast.name} className="col-3">
+              <div className="full-cast-card p-0 text-white pb-4 rounded-3 shadow border border-secondary">
+                {cast.profile_path ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`}
+                    className="card-img-top img-fluid w-100"
+                    alt={cast.name}
+                  />
+                ) : (
+                  <img
+                    src={missingCastImg}
+                    className="card-img-top img-fluid w-100"
+                    alt={cast.name}
+                  />
+                )}
+                <div className="cast-card-body p-2">
+                  <h5 className="cast-card-title">{cast.name}</h5>
+                  <p>{cast.character}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </Modal.Body>
       </Modal>
     </>

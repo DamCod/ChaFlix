@@ -18,13 +18,11 @@ function Header({ movies }) {
                     alt="First slide"
                   />
                   <Carousel.Caption>
-                    <div className="caption-div">
-                      <h3>{movies[i].title}</h3>
-                      <p>{movies[i].overview}</p>
-                      <Link to={`/movies/${movies[i].id}`}>
-                        <button className="btn btn-danger">+ Info</button>
-                      </Link>
-                    </div>
+                    <h3>{movies[i].title}</h3>
+                    <p>{movies[i].overview}</p>
+                    <Link to={`/movies/${movies[i].id}`}>
+                      <button className="btn btn-danger">+ Info</button>
+                    </Link>
                   </Carousel.Caption>
                 </Carousel.Item>
               )
