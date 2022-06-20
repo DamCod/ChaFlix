@@ -23,7 +23,6 @@ function RecommendedMovies({ movieId }) {
             tmdbApiConfig
           );
           setRecommendedMovies(recommendations.data.results);
-          console.log(recommendations.data.results);
         };
         getRecommendations();
       }

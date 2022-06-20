@@ -62,7 +62,6 @@ function Reviews({ movieId }) {
   };
 
   const handleRating = (event, newValue) => {
-    console.log("entramo");
     if (event.type === "click") {
       setRating(0);
     } else {
@@ -97,23 +96,14 @@ function Reviews({ movieId }) {
                       <i className="bi bi-person-fill fs-1"></i>
                     </div>
                   )}
-                  <div className="ms-4">
-                    <div className="d-flex">
-                      <h3 className="mb-0 me-2">
-                        A review writen by{" "}
-                        {review.author_details.name
-                          ? review.author_details.name
-                          : review.author_details.username}
-                      </h3>
-                      {review.author_details.rating && (
-                        <Badge pill bg="danger" className="d-flex fs-5">
-                          <i className="bi bi-star-fill text-warning"></i>{" "}
-                          <p className="ms-2 mb-0">
-                            {review.author_details.rating / 2}
-                          </p>
-                        </Badge>
-                      )}
-                    </div>
+                  <div className="text-start ms-4">
+                    <h3 className="mb-0 me-2">
+                      A review writen by{" "}
+                      {review.author_details.name
+                        ? review.author_details.name
+                        : review.author_details.username}
+                    </h3>
+
                     <p className="text-start m-0">
                       Written by{" "}
                       <strong>
@@ -132,6 +122,15 @@ function Reviews({ movieId }) {
                         }
                       )}
                     </p>
+                    {review.author_details.rating && (
+                      <StyledRating
+                        readOnly
+                        className="mt-2"
+                        size="large"
+                        name="simple-controlled"
+                        value={review.author_details.rating}
+                      />
+                    )}
                   </div>
                 </div>
                 <p className="review-content mt-4 text-start">

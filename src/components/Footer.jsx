@@ -4,7 +4,6 @@ import tmdbLogo from "../assets/TMDB-logo2.svg";
 
 function Footer() {
   const params = useLocation();
-  console.log(params);
 
   return (
     <>
