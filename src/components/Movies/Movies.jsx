@@ -8,7 +8,7 @@ function Movies({ movies }) {
   return (
     <>
       {movies.map((movie, i) => (
-        <div key={i} className="col-4 movies">
+        <div key={i} className="movies">
           {isLoading && (
             <div className="d-flex justify-content-center align-items-center no-image loading-image rounded shadow">
               <Spinner animation="border" variant="danger" />

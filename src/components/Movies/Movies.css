@@ -6,11 +6,13 @@
   object-fit: cover;
 }
 
-.movies img:hover,
-.no-image:hover {
-  transform: scale(115%);
-  transition-duration: 0.6s;
-  cursor: pointer;
+@media (min-width: 1280px) {
+  .movies img:hover,
+  .no-image:hover {
+    transform: scale(115%);
+    transition-duration: 0.6s;
+    cursor: pointer;
+  }
 }
 
 .no-image {
@@ -30,8 +32,18 @@
   opacity: 0.3;
 }
 
-@media (min-width: 1280px) {
+.movies {
+  width: 20%;
+}
+
+@media (max-width: 1300px) {
   .movies {
-    width: 20%;
+    width: 33.3%;
+  }
+}
+
+@media (max-width: 780px) {
+  .movies {
+    width: 50%;
   }
 }

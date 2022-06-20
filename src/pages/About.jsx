@@ -194,7 +194,7 @@ function About() {
             en JavaScript y un importante background en diseño. Mi preferencia
             es por el desarrollo front end, aunque me considero flexible y bien
             preparado para enfrentar cualquier desafío, tanto de back end como
-            de front end.
+            de front end. Contáctame.
           </p>
         </div>
       </div>
