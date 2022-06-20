@@ -61,7 +61,7 @@ function Trailer() {
           ) : (
             <div className="trailer w-100 h-100 d-flex justify-content-center align-items-center">
               <p className="text-white fs-3">
-                There are no trailer available for this movie
+                There are no trailers available for this movie
               </p>
             </div>
           )}

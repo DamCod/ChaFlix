@@ -40,8 +40,8 @@ function RecommendedMovies({ movieId }) {
 
   return (
     <>
-      <h3 className="mb-3 fs-3">Recommendations</h3>
-      <Slide direction="right">
+      <h3 className="mb-3 fs-4">Recommendations</h3>
+      <Slide direction="right" triggerOnce={true}>
         <div className="recommendations scroll px-3 rounded-3">
           {recommendedMovies
             .filter((movie) => movie.title)

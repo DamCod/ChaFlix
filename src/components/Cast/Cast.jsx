@@ -37,8 +37,8 @@ function Cast({ movieId, setDirector, setWriter }) {
   return (
     <>
       {Object.keys(cast).length > 0 && (
-        <div className="cast px-5">
-          <h3 className="text-start mb-3 fs-3">Top Billed Cast</h3>
+        <div className="cast pe-5">
+          <h3 className="text-start mb-3 fs-4">Top Billed Cast</h3>
 
           <Carousel
             swipeable={true}

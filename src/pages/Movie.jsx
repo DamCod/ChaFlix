@@ -67,7 +67,7 @@ function Movie() {
             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
             alt="background"
           />
-          <div className="row py-5 movie-details position-relative mt-5 gx-5">
+          <div className="row px-1 py-5 movie-details justify-content-between position-relative mt-5 gx-5">
             <div className="col-md-3 poster-img-container position-relative p-0 rounded-3 shadow">
               <img
                 className="poster-img img-fluid"
@@ -201,7 +201,7 @@ function Movie() {
           </div>
         </div>
 
-        <div className="row h-100 mt-2 py-0 pe-5 g-3">
+        <div className="row page-content h-100 mt-2 py-0 g-3">
           <div className="col-9 h-100">
             <Cast
               className="mt-4"
@@ -209,7 +209,7 @@ function Movie() {
               setWriter={setWriter}
               setDirector={setDirector}
             />
-            <hr className="mt-5 mx-5 bg-secondary" />
+            <hr className="mt-5 me-5 bg-secondary" />
             <Reviews movieId={params.id} />
           </div>
           <div className="col-3 h-100">
