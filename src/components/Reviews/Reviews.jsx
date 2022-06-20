@@ -239,7 +239,9 @@ function Reviews({ movieId }) {
                 This field is required
               </span>
             )}
-            <button className="ms-auto btn btn-danger mt-4">Post review</button>
+            <button className="post-review-btn ms-auto btn btn-danger mt-4">
+              Post review
+            </button>
           </form>
         </div>
       </div>

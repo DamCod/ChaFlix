@@ -3,12 +3,26 @@
   width: 17ch;
 }
 
-.genres-container {
+.genres-container-lg {
   margin-top: -2rem;
 }
 
 @media (max-width: 1150px) {
-  .genres-container {
-    margin-top: 20rem;
+  .genres-container-lg {
+    display: none;
   }
+}
+
+@media (min-width: 1150px) {
+  .genres-container-md {
+    display: none;
+  }
+}
+
+.genres-container-md {
+  margin-top: 20rem;
+}
+
+.form-select:focus {
+  box-shadow: none;
 }

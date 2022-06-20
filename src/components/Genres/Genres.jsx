@@ -3,6 +3,28 @@ import tmdbApiConfig from "../../tmdbApiConfig";
 import axios from "axios";
 
 function Genres({ setMovies }) {
+  const genres = [
+    { name: "Action", id: 28 },
+    { name: "Adventure", id: 12 },
+    { name: "Animation", id: 16 },
+    { name: "Comedy", id: 35 },
+    { name: "Crime", id: 80 },
+    { name: "Documentary", id: 99 },
+    { name: "Drama", id: 18 },
+    { name: "Family", id: 10751 },
+    { name: "Fantasy", id: 14 },
+    { name: "History", id: 36 },
+    { name: "Horror", id: 27 },
+    { name: "Music", id: 10402 },
+    { name: "Mystery", id: 9648 },
+    { name: "Romance", id: 10749 },
+    { name: "Science-Fiction", id: 878 },
+    { name: "Thriller", id: 53 },
+    { name: "War", id: 10752 },
+    { name: "TV Movies", id: 10770 },
+    { name: "Western", id: 37 },
+  ];
+
   const handleGenres = (genre) => {
     window.scrollTo(0, 0);
     const getMovies = async () => {
@@ -13,160 +35,44 @@ function Genres({ setMovies }) {
     getMovies();
   };
   return (
-    <div className="genres-container col-12 mb-5 px-0">
-      <button
-        onClick={() => {
-          handleGenres(28);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Action
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(12);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Adventure
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(16);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Animation
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(35);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Comedy
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(80);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Crime
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(99);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Documentary
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(18);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Drama
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(10751);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Family
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(14);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Fantasy
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(36);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        History
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(27);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Horror
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(10402);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Music
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(9648);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Mystery
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(10749);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Romance
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(878);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Science Fiction
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(53);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Thriller
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(10752);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        War
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(10770);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        TV Movies
-      </button>
-      <button
-        onClick={() => {
-          handleGenres(37);
-        }}
-        className="col-1 m-2 btn btn-danger genre"
-      >
-        Western
-      </button>
-    </div>
+    <>
+      <div className="genres-container-lg col-12 mb-5 px-0">
+        {genres.map((genre) => (
+          <button
+            key={genre.name}
+            onClick={() => {
+              handleGenres(genre.id);
+            }}
+            className="col-1 m-2 btn btn-danger genre"
+          >
+            {genre.name}
+          </button>
+        ))}
+      </div>
+      <div className="genres-container-md">
+        <div className="ms-auto d-flex justify-content-end w-50 mb-3">
+          <label
+            className="text-white fs-4 fw-bold"
+            htmlFor="inputGroupSelect01"
+          >
+            Genres
+          </label>
+          <select
+            onChange={(e) => {
+              handleGenres(e.target.value);
+            }}
+            className="form-select w-50 ms-2 bg-dark text-white"
+            id="inputGroupSelect01"
+          >
+            {genres.map((genre) => (
+              <option key={genre.name} value={genre.id}>
+                {genre.name}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+    </>
   );
 }
 
