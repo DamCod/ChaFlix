@@ -26,3 +26,13 @@
 .form-select:focus {
   box-shadow: none;
 }
+
+.genre-selector {
+  width: 50%;
+}
+
+@media (max-width: 780px) {
+  .genre-selector {
+    width: 100%;
+  }
+}

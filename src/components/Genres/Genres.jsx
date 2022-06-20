@@ -50,7 +50,7 @@ function Genres({ setMovies }) {
         ))}
       </div>
       <div className="genres-container-md">
-        <div className="ms-auto d-flex justify-content-end w-50 mb-3">
+        <div className="ms-auto d-flex justify-content-end genre-selector mb-3">
           <label
             className="text-white fs-4 fw-bold"
             htmlFor="inputGroupSelect01"
@@ -61,7 +61,7 @@ function Genres({ setMovies }) {
             onChange={(e) => {
               handleGenres(e.target.value);
             }}
-            className="form-select w-50 ms-2 bg-dark text-white"
+            className="form-select genre-selector ms-2 bg-dark text-white"
             id="inputGroupSelect01"
           >
             {genres.map((genre) => (
