@@ -3,7 +3,7 @@ import tmdbApiConfig from "../../tmdbApiConfig";
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
 import "./Trailer.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function Trailer() {
   const [trailer, setTrailer] = useState("");
@@ -24,9 +24,11 @@ function Trailer() {
       tmdbApiConfig
     );
     setTrailer(
-      `https://www.youtube.com/embed/${
-        response.data.results[response.data.results.length - 1].key
-      }`
+      response.data.results.length > 0
+        ? `https://www.youtube.com/embed/${
+            response.data.results[response.data.results.length - 1].key
+          }`
+        : ""
     );
   };
   getTrailer();
@@ -40,6 +42,7 @@ function Trailer() {
         <i className="bi bi-play-fill"></i> Play trailer
       </button>
       <Modal
+        contentClassName="trailer-modal"
         show={show}
         onHide={() => handleClose()}
         size="xl"
@@ -47,12 +50,29 @@ function Trailer() {
         centered
       >
         <Modal.Body>
-          <iframe
-            className="trailer"
-            allowFullScreen={true}
-            frameBorder="0"
-            src={trailer}
-          ></iframe>
+          {trailer ? (
+            <iframe
+              className="trailer"
+              allowFullScreen={true}
+              frameBorder="0"
+              src={trailer}
+              title="trailer"
+            ></iframe>
+          ) : (
+            <div className="trailer w-100 h-100 d-flex justify-content-center align-items-center">
+              <p className="text-white fs-3">
+                There are no trailer available for this movie
+              </p>
+            </div>
+          )}
+          <div className="d-flex">
+            <Link
+              to="/"
+              className="text-decoration-none ms-auto fs-4 mb-2 pe-3 text-danger"
+            >
+              <strong>NotFlix</strong>
+            </Link>
+          </div>
         </Modal.Body>
       </Modal>
     </>

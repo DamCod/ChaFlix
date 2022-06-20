@@ -1,25 +1,45 @@
 import "./Reviews.css";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import tmdbApiConfig from "../../tmdbApiConfig";
 import { useState, useEffect } from "react";
-import { Badge } from "react-bootstrap";
+import { Badge, Spinner } from "react-bootstrap";
 import { styled } from "@mui/material/styles";
 import Rating from "@mui/material/Rating";
+import { useForm } from "react-hook-form";
 
 function Reviews({ movieId }) {
+  const [rating, setRating] = useState(0);
   const [reviews, setReviews] = useState([]);
+  const [tmdbReviews, setTmdbReviews] = useState([]);
+  const [reviewLoader, setReviewLoader] = useState(false);
+
+  const {
+    setValue,
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const getReviews = async () => {
+    const response = await axios.get(
+      process.env.REACT_APP_API_URL + `/review/${movieId}`
+    );
+    setReviews(response.data);
+    setReviewLoader(false);
+  };
 
   useEffect(() => {
-    const getReviews = async () => {
+    const getTmdbReviews = async () => {
       const reviewsData = await axios.get(
         `/movie/${movieId}/reviews`,
         tmdbApiConfig
       );
-      setReviews(reviewsData.data.results);
+      setTmdbReviews(reviewsData.data.results);
     };
+    getTmdbReviews();
     getReviews();
+    // eslint-disable-next-line
   }, [movieId]);
 
   const StyledRating = styled(Rating)({
@@ -28,15 +48,36 @@ function Reviews({ movieId }) {
     },
   });
 
-  const notify = () => toast("Wow so easy!");
+  const onSubmit = async (data, e) => {
+    e.preventDefault();
+    setReviewLoader(true);
+    await axios({
+      method: "post",
+      url: process.env.REACT_APP_API_URL + `/review/${movieId}`,
+      data: data,
+    });
+    reset();
+    setRating(0);
+    setTimeout(() => getReviews(), 2000);
+  };
+
+  const handleRating = (event, newValue) => {
+    console.log("entramo");
+    if (event.type === "click") {
+      setRating(0);
+    } else {
+      setRating(newValue);
+      setValue("rating", newValue, { shouldValidate: true });
+    }
+  };
 
   return (
     <>
       <div className="reviews-container mt-5 px-5">
         <h3 className="text-start mb-3 fs-3">Reviews</h3>
-        {reviews.length > 0 ? (
+        {tmdbReviews.length > 0 || reviews.length > 0 ? (
           <div className="review-container scroll px-3 rounded-3">
-            {reviews.map((review, i) => (
+            {tmdbReviews.map((review, i) => (
               <div key={i} className="border rounded mx-1 my-3 p-3">
                 <div className="d-flex align-items-center">
                   {review.author_details.avatar_path ? (
@@ -65,9 +106,11 @@ function Reviews({ movieId }) {
                           : review.author_details.username}
                       </h3>
                       {review.author_details.rating && (
-                        <Badge pill bg="danger" className="fs-5">
-                          <i className="bi bi-star-fill"></i>{" "}
-                          {review.author_details.rating}.0
+                        <Badge pill bg="danger" className="d-flex fs-5">
+                          <i className="bi bi-star-fill text-warning"></i>{" "}
+                          <p className="ms-2 mb-0">
+                            {review.author_details.rating / 2}
+                          </p>
                         </Badge>
                       )}
                     </div>
@@ -96,32 +139,111 @@ function Reviews({ movieId }) {
                 </p>
               </div>
             ))}
+            {reviews.map((review, i) => (
+              <div
+                key={i}
+                className="border rounded mx-1 my-3 p-3 animate__animated animate__zoomIn"
+              >
+                <div className="d-flex align-items-center">
+                  <div className="d-flex align-items-center justify-content-center no-avatar review-profile-pic bg-secondary">
+                    <i className="bi bi-person-fill fs-1"></i>
+                  </div>
+                  <div className="text-start ms-4">
+                    <h3 className="mb-0 me-2">
+                      A review writen by {review.username}
+                    </h3>
+
+                    <p className="text-start m-0">
+                      Written by <strong>{review.username}</strong> on{" "}
+                      {new Date(review.createdAt).toLocaleDateString(
+                        {},
+                        {
+                          timeZone: "UTC",
+                          month: "long",
+                          day: "2-digit",
+                          year: "numeric",
+                        }
+                      )}
+                    </p>
+                    {review.rating && (
+                      <StyledRating
+                        readOnly
+                        className="mt-2"
+                        size="large"
+                        name="simple-controlled"
+                        value={review.rating}
+                      />
+                    )}
+                  </div>
+                </div>
+                <p className="review-content mt-4 text-start">
+                  {review.content}
+                </p>
+              </div>
+            ))}
           </div>
         ) : (
           <p>There are no reviews for this movie yet.</p>
         )}
-        <div className="mt-3 rounded d-flex flex-column">
-          <div className="d-flex align-items-center">
-            <p className="mb-0 me-1">Rate this movie:</p>
-            <StyledRating
-              className="my-4 me-2"
-              size="large"
-              name="simple-controlled"
-            />
+        <hr className="mt-5" />
+
+        <div className="form-container position-relative">
+          <div
+            className={`reviews-loader-container position-absolute w-100 h-100 animate__animated animate__fadeIn ${
+              reviewLoader ? "d-flex" : "d-none"
+            }`}
+          >
+            <div className="reviews-loader animate__animated animate__zoomIn">
+              <Spinner animation="border" variant="danger" />
+              <p className="text-dark fw-bold mt-2 mb-0">Posting review...</p>
+            </div>
           </div>
-          <textarea
-            className="bg-dark w-100 rounded text-white p-2"
-            rows="3"
-            type="text-area"
-            name="content"
-            placeholder="What do you think about this movie?"
-          ></textarea>
-          <button className="ms-auto btn btn-danger mt-2" onClick={notify}>
-            Post review
-          </button>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="mt-3 rounded d-flex flex-column animate__animated animate__fadeIn"
+          >
+            <input
+              className="bg-dark border-bottom border-secondary w-25 text-white p-2"
+              autoComplete="off"
+              id="username"
+              type="text"
+              placeholder="Username"
+              {...register("username", {
+                required: false,
+              })}
+            />
+            <div className="d-flex align-items-center">
+              <p className="mb-0 me-1 fs-4 pb-1">Rate this movie:</p>
+              <StyledRating
+                id="rating"
+                className="my-4 me-2"
+                size="large"
+                name="simple-controlled"
+                value={rating}
+                onChange={(event, newValue) => handleRating(event, newValue)}
+              />
+            </div>
+            <textarea
+              className="bg-dark w-100 rounded text-white p-2"
+              rows="5"
+              autoComplete="off"
+              id="content"
+              type="text-area"
+              name="content"
+              placeholder="What do you think about this movie?"
+              {...register("content", {
+                required: true,
+              })}
+            ></textarea>
+            {errors.content && (
+              <span className="f-roboto fs-7 text-danger d-block">
+                This field is required
+              </span>
+            )}
+            <button className="ms-auto btn btn-danger mt-4">Post review</button>
+          </form>
         </div>
       </div>
-      <ToastContainer />
     </>
   );
 }

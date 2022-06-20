@@ -2,3 +2,13 @@
   height: 6ch;
   width: 17ch;
 }
+
+.genres-container {
+  margin-top: -2rem;
+}
+
+@media (max-width: 1150px) {
+  .genres-container {
+    margin-top: 20rem;
+  }
+}

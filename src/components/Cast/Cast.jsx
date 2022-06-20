@@ -38,7 +38,7 @@ function Cast({ movieId, setDirector, setWriter }) {
     <>
       {Object.keys(cast).length > 0 && (
         <div className="cast px-5">
-          <h3 className="text-start mb-3 fs-2">Top Billed Cast</h3>
+          <h3 className="text-start mb-3 fs-3">Top Billed Cast</h3>
 
           <Carousel
             swipeable={true}
@@ -123,12 +123,12 @@ function Cast({ movieId, setDirector, setWriter }) {
       )}
       <Modal size="xl" show={showCast} onHide={handleClose} centered>
         <Modal.Header
-          className="bg-dark text-white"
+          className="bg-dark text-white border-0"
           closeButton
           closeVariant="white"
         >
           <Modal.Title>
-            <h2 className="title text-start fs-2">Cast</h2>
+            <h2 className="title text-start fs-2 text-danger">Cast</h2>
           </Modal.Title>
         </Modal.Header>
         <Modal.Body className="row m-0 bg-dark g-2">
@@ -138,13 +138,13 @@ function Cast({ movieId, setDirector, setWriter }) {
                 {cast.profile_path ? (
                   <img
                     src={`https://image.tmdb.org/t/p/w300${cast.profile_path}`}
-                    className="card-img-top img-fluid w-100"
+                    className="full-cast-img img-fluid w-100"
                     alt={cast.name}
                   />
                 ) : (
                   <img
                     src={missingCastImg}
-                    className="card-img-top img-fluid w-100"
+                    className="full-cast-img img-fluid w-100"
                     alt={cast.name}
                   />
                 )}

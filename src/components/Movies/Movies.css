@@ -16,6 +16,13 @@
 .no-image {
   height: 556px;
   width: auto;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(19, 19, 19);
+}
+
+.notflix-logo {
+  font-size: 10rem;
 }
 
 .loading-image {

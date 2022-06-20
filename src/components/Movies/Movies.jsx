@@ -26,8 +26,11 @@ function Movies({ movies }) {
                 onLoad={() => setIsLoading(false)}
               />
             ) : (
-              <div className="no-image bg-secondary d-flex align-items-center justify-content-center text-white rounded shadow">
-                <p className="fs-4">{movie.title}</p>
+              <div className="no-image d-flex align-items-center justify-content-center rounded shadow">
+                <h5 className="notflix-logo text-danger">
+                  <strong>N</strong>
+                </h5>
+                <p className="fs-4 text-white">{movie.title}</p>
               </div>
             )}
           </Link>

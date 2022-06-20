@@ -6,7 +6,13 @@ function SearchBar({ title, setTitle }) {
 
   return (
     <>
-      <form className="search-form position-relative rounded me-3">
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          navigate("/search");
+        }}
+        className="search-form position-relative rounded me-3"
+      >
         <input
           value={title}
           onChange={(ev) => {
@@ -18,6 +24,7 @@ function SearchBar({ title, setTitle }) {
           id="searchInput"
           placeholder="Search movie..."
         />
+        <button className="d-none" type="submit"></button>
         {title.length > 0 && (
           <button
             className="btn clear-search-btn  position-absolute"

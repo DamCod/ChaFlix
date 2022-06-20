@@ -35,7 +35,7 @@ function Home() {
   return (
     <>
       <Header movies={movies} />
-      <div className="mt-3container-fluid px-5 position-relative">
+      <div className="container-fluid px-5 position-relative">
         <div className="row g-4 justify-content-center" style={styles.div}>
           <Genres setMovies={setMovies} />
           <Movies movies={movies} />

@@ -13,7 +13,7 @@ function Genres({ setMovies }) {
     getMovies();
   };
   return (
-    <div className="col-12 my-5 px-0">
+    <div className="genres-container col-12 mb-5 px-0">
       <button
         onClick={() => {
           handleGenres(28);

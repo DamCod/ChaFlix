@@ -34,3 +34,24 @@
 .review-content {
   margin-left: 83px;
 }
+
+.reviews-loader-container {
+  background-color: rgba(33, 37, 41, 0.7);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  animation-duration: 1s;
+}
+
+.reviews-loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 20%;
+  height: 35%;
+  border-radius: 3px;
+  background-color: aliceblue;
+  margin-top: -3rem;
+  animation-duration: 1s;
+}

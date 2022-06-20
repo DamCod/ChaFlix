@@ -1,10 +1,40 @@
 .about-page {
-  height: 60vh;
-  display: flex;
+  justify-content: center;
   align-items: center;
+  margin-top: 8rem;
 }
 
 .tmdb-logo {
   object-fit: cover;
   transform: translateY(-0.5px);
+}
+
+.techstack {
+  margin-left: 2px;
+  margin-right: 2px;
+  background-color: black;
+  padding: 1rem;
+}
+
+.profile-pic {
+  border-radius: 50%;
+  width: 10rem;
+  height: 10rem;
+}
+
+.link-git:hover {
+  color: #c9510c;
+}
+
+.link-linkedin:hover {
+  color: #0a66c2;
+}
+
+.about-me-text-container {
+  background-color: black;
+  padding: 1rem;
+  height: 30%;
+  margin-top: 2rem;
+  margin-left: -3rem;
+  z-index: -1;
 }

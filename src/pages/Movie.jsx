@@ -11,6 +11,8 @@ import Reviews from "../components/Reviews/Reviews";
 import Cast from "../components/Cast/Cast";
 import RecommendedMovies from "../components/RecommendedMovies/RecommendedMovies";
 import Trailer from "../components/Trailer/Trailer";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Movie() {
   const [movie, setMovie] = useState([]);
@@ -51,9 +53,13 @@ function Movie() {
     setZoom(false);
   };
 
+  const notify = () =>
+    toast.info("This functionality has not been implemented yet!");
+
   return (
     <>
-      <div className="container-fluid movie-page-container text-white p-0">
+      <ToastContainer />
+      <div className="container-fluid movie-page-container text-white p-0 animate__fadeIn">
         <div className="header-movie position-relative">
           <div className="header-gradient w-100 h-100 position-absolute"></div>
           <img
@@ -61,10 +67,10 @@ function Movie() {
             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
             alt="background"
           />
-          <div className="row justify-content-center align-items-center py-5 movie-details position-relative mt-5 gx-5">
-            <div className="col-3 poster-img-container position-relative p-0 me-4 shadow">
+          <div className="row py-5 movie-details position-relative mt-5 gx-5">
+            <div className="col-md-3 poster-img-container position-relative p-0 rounded-3 shadow">
               <img
-                className="poster-img img-fluid rounded-3 w-100 h-100"
+                className="poster-img img-fluid"
                 src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
                 alt={movie.title}
               />
@@ -77,7 +83,7 @@ function Movie() {
                 </span>
               </div>
             </div>
-            <div className="col-6 pe-0">
+            <div className="col-md-9">
               <div className="d-flex flex-column">
                 <div className="d-flex align-items-center">
                   <h1 className="title text-start fs-2">
@@ -91,12 +97,14 @@ function Movie() {
                   </h1>
                 </div>
                 <div className="d-flex align-items-center facts text-start">
-                  {countryFlag && (
+                  {countryFlag ? (
                     <img
                       src={countryFlag}
                       className="country img-fluid"
                       alt="production country flag"
                     />
+                  ) : (
+                    <p className="mb-0">Unknown production country</p>
                   )}
 
                   <span className="release">
@@ -124,16 +132,28 @@ function Movie() {
                     value={Math.round(movie.vote_average / 2)}
                   />
                   <span className="me-3 fs-5">{movie.vote_average}/10</span>
-                  <button className="btn btn-danger circle-button">
+                  <button
+                    className="btn btn-danger circle-button"
+                    onClick={notify}
+                  >
                     <i className="bi bi-list-ul"></i>
                   </button>
-                  <button className="btn btn-danger circle-button">
+                  <button
+                    className="btn btn-danger circle-button"
+                    onClick={notify}
+                  >
                     <i className="bi bi-heart-fill"></i>
                   </button>
-                  <button className="btn btn-danger circle-button">
+                  <button
+                    className="btn btn-danger circle-button"
+                    onClick={notify}
+                  >
                     <i className="bi bi-bookmark-fill"></i>
                   </button>
-                  <button className="btn btn-danger circle-button">
+                  <button
+                    className="btn btn-danger circle-button"
+                    onClick={notify}
+                  >
                     <i className="bi bi-star-fill"></i>
                   </button>
                   <Trailer />
@@ -157,20 +177,31 @@ function Movie() {
                   </p>
                 </div>
                 <div>
-                  <p className="text-start mt-3 ms-5">
-                    <strong>
-                      {writer.length > 0 && writer[0].original_name}
-                    </strong>
-                    <br />
-                    Writer
-                  </p>
+                  {writer[0] && (
+                    <p className="text-start mt-3 pe-5 mx-5">
+                      <strong>
+                        {writer.length > 0 && writer[0].original_name}
+                      </strong>
+                      <br />
+                      Writer
+                    </p>
+                  )}
+                </div>
+                <div>
+                  {writer[1] && (
+                    <p className="text-start mt-3 ms-5">
+                      <strong>{writer[1].original_name}</strong>
+                      <br />
+                      Writer
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="row h-100 mt-5 py-0 pe-5 g-3">
+        <div className="row h-100 mt-2 py-0 pe-5 g-3">
           <div className="col-9 h-100">
             <Cast
               className="mt-4"
@@ -188,23 +219,6 @@ function Movie() {
       </div>
 
       <Modal show={zoom} onHide={handleClose} centered>
-        <Modal.Header
-          className="bg-dark text-white border-secondary"
-          closeButton
-          closeVariant="white"
-        >
-          <Modal.Title>
-            <h2 className="title text-start fs-2">
-              {movie.title}{" "}
-              <span className="year">
-                (
-                {Object.keys(movie).length > 0 &&
-                  movie.release_date.slice(0, 4)}
-                )
-              </span>
-            </h2>
-          </Modal.Title>
-        </Modal.Header>
         <Modal.Body className="bg-dark p-0">
           <img
             onClick={() => setZoom(true)}

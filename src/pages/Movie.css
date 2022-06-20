@@ -3,14 +3,26 @@
   overflow: hidden;
 }
 
+@media (max-width: 1456px) {
+  .header-movie {
+    height: fit-content;
+  }
+}
+
 .header-bg-img {
   position: absolute;
   left: 0;
   object-fit: cover;
 }
 
+.poster-img {
+  object-fit: cover;
+}
+
 .poster-img-container {
   overflow: hidden;
+  max-height: 460px;
+  max-width: 310px;
 }
 
 div.poster-expand {
@@ -37,7 +49,7 @@ div.poster-expand {
   left: 0;
   z-index: 1;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(27, 0, 0, 0.8);
 }
 
 .movie-details {
@@ -86,6 +98,11 @@ div.poster-expand {
 }
 
 .title {
-  font-size: 5rem;
+  font-size: 4rem;
+  line-height: 1;
+}
+
+.subtitle {
+  font-size: 3rem;
   line-height: 1;
 }

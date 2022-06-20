@@ -7,3 +7,35 @@
 .mt-6 {
   margin-top: 15rem;
 }
+
+.modal-open[style] {
+  overflow: scroll !important;
+  padding-right: 0px !important;
+}
+
+nav[style] {
+  padding-right: 0px !important;
+}
+
+div.modal-body {
+  padding: 0;
+}
+
+div.fade.modal.show::-webkit-scrollbar {
+  width: 12px;
+}
+
+div.fade.modal.show::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  border-radius: 10px;
+}
+
+div.fade.modal.show::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  box-shadow: inset 0 0 6px rgba(191, 7, 7, 0.5);
+  background-color: rgb(147, 45, 45);
+}
+
+footer {
+  margin-top: 3rem;
+}

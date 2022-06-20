@@ -1,11 +1,15 @@
 import React from "react";
-import tmdbLogo from "../assets/TMDB-logo.svg";
+import { useLocation } from "react-router-dom";
+import tmdbLogo from "../assets/TMDB-logo2.svg";
 
 function Footer() {
+  const params = useLocation();
+  console.log(params);
+
   return (
     <>
-      <footer className="bg-dark text-center text-white mt-5">
-        <div className="container p-4">
+      <footer className="bg-dark text-center text-white">
+        {params.pathname !== "/about" && (
           <section className="mb-4">
             <a
               target="_blank"
@@ -64,9 +68,8 @@ function Footer() {
               </svg>
             </a>
           </section>
-        </div>
-
-        <section className="mb-2">
+        )}
+        <section>
           <p>
             The information displayed on this site is courtesy of{" "}
             <a
@@ -74,9 +77,9 @@ function Footer() {
               href="https://www.themoviedb.org/"
             >
               <img
-                className="tmdb-logo img-fluid"
-                width="125"
-                height="10"
+                className="pb-1 ps-1 tmdb-logo img-fluid"
+                width="120"
+                height="8"
                 src={tmdbLogo}
                 alt="TheMovieDataBase"
               />
@@ -90,7 +93,7 @@ function Footer() {
               className="text-danger text-decoration-none fw-bold fs-4"
               href="/"
             >
-              ChaFlix
+              NotFlix
             </a>{" "}
             by Damián Cancela - 2022
           </p>
