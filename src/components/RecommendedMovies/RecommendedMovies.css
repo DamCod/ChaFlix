@@ -1,8 +1,20 @@
-.recommendations {
+.recommendations-lg {
   border: 2px solid rgb(18, 18, 18);
   background-color: rgb(39, 39, 39);
   overflow: auto;
   overflow-x: hidden;
+}
+
+@media (min-width: 992px) {
+  .recommendations-sm {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .recommendations-lg {
+    display: none;
+  }
 }
 
 .recommendation-container {

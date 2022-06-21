@@ -37,7 +37,7 @@ function Cast({ movieId, setDirector, setWriter }) {
   return (
     <>
       {Object.keys(cast).length > 0 && (
-        <div className="cast pe-5">
+        <div className="cast pe-lg-5">
           <h3 className="text-start mb-3 fs-4">Top Billed Cast</h3>
 
           <Carousel
@@ -69,12 +69,12 @@ function Cast({ movieId, setDirector, setWriter }) {
               },
               mobile2: {
                 breakpoint: { max: 780, min: 0 },
-                items: 2,
+                items: 3,
                 slidesToSlide: 1,
               },
               mobile: {
                 breakpoint: { max: 464, min: 0 },
-                items: 1,
+                items: 3,
                 slidesToSlide: 1,
               },
             }}

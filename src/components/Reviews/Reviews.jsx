@@ -72,7 +72,7 @@ function Reviews({ movieId }) {
 
   return (
     <>
-      <div className="reviews-container mt-5 pe-5">
+      <div className="reviews-container mt-5 pe-lg-5">
         <h3 className="text-start mb-3 fs-4">Reviews</h3>
         {tmdbReviews.length > 0 || reviews.length > 0 ? (
           <div className="review-container scroll px-3 rounded-3">

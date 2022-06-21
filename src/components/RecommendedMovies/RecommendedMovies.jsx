@@ -6,6 +6,9 @@ import { styled } from "@mui/material/styles";
 import Rating from "@mui/material/Rating";
 import { Link } from "react-router-dom";
 import { Slide } from "react-awesome-reveal";
+import Carousel from "react-multi-carousel";
+import CustomRightArrow from "../CustomArrows/CustomRightArrow";
+import CustomLeftArrow from "../CustomArrows/CustomLeftArrow";
 
 function RecommendedMovies({ movieId }) {
   const [recommendedMovies, setRecommendedMovies] = useState([]);
@@ -41,7 +44,7 @@ function RecommendedMovies({ movieId }) {
     <>
       <h3 className="mb-3 fs-4">Recommendations</h3>
       <Slide direction="right" triggerOnce={true}>
-        <div className="recommendations scroll px-3 rounded-3">
+        <div className="recommendations-lg scroll px-3 rounded-3">
           {recommendedMovies
             .filter((movie) => movie.title)
             .map(
@@ -94,6 +97,79 @@ function RecommendedMovies({ movieId }) {
                 )
             )}
         </div>
+
+        <Carousel
+          swipeable={true}
+          arrows={true}
+          autoPlay={false}
+          infinite={true}
+          shouldResetAutoplay={false}
+          responsive={{
+            desktop: {
+              breakpoint: { max: 3000, min: 1024 },
+              items: 6,
+              slidesToSlide: 1,
+            },
+            desktop2: {
+              breakpoint: { max: 1530, min: 1024 },
+              items: 5,
+              slidesToSlide: 1,
+            },
+            desktop3: {
+              breakpoint: { max: 1300, min: 1024 },
+              items: 4,
+              slidesToSlide: 1,
+            },
+            tablet: {
+              breakpoint: { max: 1040, min: 464 },
+              items: 3,
+              slidesToSlide: 1,
+            },
+            mobile2: {
+              breakpoint: { max: 780, min: 0 },
+              items: 3,
+              slidesToSlide: 1,
+            },
+            mobile: {
+              breakpoint: { max: 464, min: 0 },
+              items: 3,
+              slidesToSlide: 1,
+            },
+          }}
+          keyBoardControl={true}
+          containerClass="carousel-container recommendations-sm py-3 rounded"
+          customRightArrow={<CustomRightArrow />}
+          customLeftArrow={<CustomLeftArrow />}
+          itemClass="px-3"
+          removeArrowOnDeviceType={["tablet", "mobile"]}
+        >
+          {recommendedMovies
+            .filter((movie) => movie.title)
+            .map((movie, i) => (
+              <Link
+                key={i}
+                to={`/movies/${movie.id}`}
+                className="text-decoration-none"
+              >
+                <div className="w-100 text-white rounded-3 shadow">
+                  {movie.poster_path ? (
+                    <img
+                      src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+                      alt={movie.title}
+                      className="rounded w-100 h-100"
+                    />
+                  ) : (
+                    <div className="no-image-recommended py-3 d-flex align-items-center justify-content-center rounded shadow">
+                      <h5 className="notflix-logo text-danger">
+                        <strong>N</strong>
+                      </h5>
+                      <p>{movie.title}</p>
+                    </div>
+                  )}
+                </div>
+              </Link>
+            ))}
+        </Carousel>
       </Slide>
     </>
   );

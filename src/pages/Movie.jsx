@@ -202,7 +202,7 @@ function Movie() {
         </div>
 
         <div className="row page-content h-100 mt-2 py-0 g-3">
-          <div className="col-9 h-100">
+          <div className="col-lg-9 h-100">
             <Cast
               className="mt-4"
               movieId={params.id}
@@ -212,7 +212,7 @@ function Movie() {
             <hr className="mt-5 me-5 bg-secondary" />
             <Reviews movieId={params.id} />
           </div>
-          <div className="col-3 h-100">
+          <div className="col-lg-3 h-100">
             <RecommendedMovies movieId={params.id} />
           </div>
         </div>
