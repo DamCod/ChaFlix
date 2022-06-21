@@ -42,9 +42,7 @@ function RecommendedMovies({ movieId }) {
 
   return (
     <>
-      <h3 className="mb-3 fs-4 text-md-center text-sm-start">
-        Recommendations
-      </h3>
+      <h3 className="mb-3 fs-4 text-md-center text-start">Recommendations</h3>
       <Slide direction="right" triggerOnce={true}>
         <div className="recommendations-lg scroll px-3 rounded-3">
           {recommendedMovies
@@ -129,12 +127,7 @@ function RecommendedMovies({ movieId }) {
             },
             mobile2: {
               breakpoint: { max: 780, min: 0 },
-              items: 3,
-              slidesToSlide: 1,
-            },
-            mobile: {
-              breakpoint: { max: 464, min: 0 },
-              items: 3,
+              items: 2,
               slidesToSlide: 1,
             },
           }}

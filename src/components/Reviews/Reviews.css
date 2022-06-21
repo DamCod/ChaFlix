@@ -9,6 +9,12 @@
   object-fit: cover;
 }
 
+@media (max-width: 767px) {
+  .review-profile-pic {
+    display: none;
+  }
+}
+
 .review-container {
   border: 2px solid rgb(18, 18, 18);
   background-color: rgb(39, 39, 39);
@@ -31,8 +37,10 @@
   background-color: rgb(147, 45, 45);
 }
 
-.review-content {
-  margin-left: 83px;
+@media (min-width: 768px) {
+  .review-content {
+    margin-left: 83px;
+  }
 }
 
 .reviews-loader-container {

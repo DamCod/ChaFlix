@@ -96,7 +96,7 @@ function Reviews({ movieId }) {
                       <i className="bi bi-person-fill fs-1"></i>
                     </div>
                   )}
-                  <div className="text-start ms-4">
+                  <div className="text-start ms-md-4">
                     <h3 className="mb-0 me-2">
                       A review writen by{" "}
                       {review.author_details.name
@@ -147,7 +147,7 @@ function Reviews({ movieId }) {
                   <div className="d-flex align-items-center justify-content-center no-avatar review-profile-pic bg-secondary">
                     <i className="bi bi-person-fill fs-1"></i>
                   </div>
-                  <div className="text-start ms-4">
+                  <div className="text-start ms-md-4">
                     <h3 className="mb-0 me-2">
                       A review writen by {review.username}
                     </h3>
@@ -212,7 +212,7 @@ function Reviews({ movieId }) {
               })}
             />
             <div className="d-flex align-items-center">
-              <p className="mb-0 me-1 fs-4 pb-1">Rate this movie:</p>
+              <p className="mb-0 me-1 fs-4 pb-1">Rating:</p>
               <StyledRating
                 id="rating"
                 className="my-4 me-2"
