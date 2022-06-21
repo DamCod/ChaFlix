@@ -181,7 +181,7 @@ function Movie() {
                 <strong>Overview</strong>
               </h3>
               <p className="fs-5 text-start">{movie.overview}</p>
-              <div className="facts justify-content-between">
+              <div className="facts pe-md-5 justify-content-between">
                 <div>
                   <p className="text-start mt-3">
                     <strong>
