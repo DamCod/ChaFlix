@@ -68,21 +68,30 @@ function Movie() {
             alt="background"
           />
           <div className="row mx-4 mx-lg-5 px-1 py-5 movie-details justify-content-between position-relative mt-5 gx-md-5">
-            <div className="col-md-3 poster-img-container position-relative p-0 rounded-3 shadow">
-              <img
-                className="poster-img img-fluid"
-                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                alt={movie.title}
-              />
-              <div
-                onClick={() => setZoom(true)}
-                className="poster-expand rounded w-100 h-100"
-              >
-                <span className="fs-4">
-                  <i className="bi bi-arrows-fullscreen"></i> Expand
-                </span>
+            {movie.poster_path ? (
+              <div className="col-md-3 poster-img-container position-relative p-0 rounded-3 shadow">
+                <img
+                  className="poster-img img-fluid"
+                  src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                  alt={movie.title}
+                />
+
+                <div
+                  onClick={() => setZoom(true)}
+                  className="poster-expand rounded w-100 h-100"
+                >
+                  <span className="fs-4">
+                    <i className="bi bi-arrows-fullscreen"></i> Expand
+                  </span>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="no-poster-img align-items-center justify-content-center rounded shadow">
+                <h5 className="notflix-logo text-danger">
+                  <strong>N</strong>
+                </h5>
+              </div>
+            )}
             <div className="col-custom-9">
               <div className="d-flex flex-column">
                 <div className="d-flex align-items-center">

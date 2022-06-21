@@ -19,6 +19,13 @@
   object-fit: cover;
 }
 
+.no-poster-img {
+  background-color: black;
+  display: flex;
+  max-height: 500px;
+  max-width: 350px;
+}
+
 .poster-img-container {
   overflow: hidden;
   max-height: 500px;
@@ -42,6 +49,10 @@
 
 @media (max-width: 790px) {
   .poster-img-container {
+    display: none;
+  }
+
+  .no-poster-img {
     display: none;
   }
 

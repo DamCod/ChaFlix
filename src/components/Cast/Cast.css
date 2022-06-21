@@ -25,6 +25,12 @@
   }
 }
 
+@media (max-width: 991px) {
+  .full-cast-card {
+    height: 330px;
+  }
+}
+
 .full-cast-img {
   object-fit: cover;
   object-position: 0 0;

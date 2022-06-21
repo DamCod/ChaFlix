@@ -128,7 +128,7 @@ function Cast({ movieId, setDirector, setWriter }) {
         </Modal.Header>
         <Modal.Body className="row m-0 bg-dark g-2">
           {cast.map((cast, i) => (
-            <div key={cast.name} className="col-3">
+            <div key={cast.name} className="col-4 col-md-3 col-sm-4">
               <div className="full-cast-card p-0 text-white pb-4 rounded-3 shadow border border-secondary">
                 {cast.profile_path ? (
                   <img
