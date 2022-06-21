@@ -54,6 +54,8 @@ function Trailer() {
             <iframe
               className="trailer"
               allowFullScreen={true}
+              height="315"
+              width="560"
               frameBorder="0"
               src={trailer}
               title="trailer"
@@ -65,14 +67,6 @@ function Trailer() {
               </p>
             </div>
           )}
-          <div className="d-flex">
-            <Link
-              to="/"
-              className="text-decoration-none ms-auto fs-4 mb-2 pe-3 text-danger"
-            >
-              <strong>NotFlix</strong>
-            </Link>
-          </div>
         </Modal.Body>
       </Modal>
     </>

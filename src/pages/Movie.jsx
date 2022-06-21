@@ -67,7 +67,7 @@ function Movie() {
             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
             alt="background"
           />
-          <div className="row px-md-1 py-5 movie-details justify-content-between position-relative mt-5 gx-md-5">
+          <div className="row mx-4 mx-lg-5 px-1 py-5 movie-details justify-content-between position-relative mt-5 gx-md-5">
             <div className="col-md-3 poster-img-container position-relative p-0 rounded-3 shadow">
               <img
                 className="poster-img img-fluid"
@@ -99,7 +99,7 @@ function Movie() {
                     onClick={() => setZoom(true)}
                     className="btn btn-danger poster-btn"
                   >
-                    <i class="bi bi-file-image"></i>
+                    <i className="bi bi-file-image"></i>
                   </button>
                 </div>
                 <div className="facts align-items-center text-start">
@@ -207,11 +207,13 @@ function Movie() {
           </div>
         </div>
 
-        <div className="row mx-4 page-content h-100 mt-2 py-0 g-3">
+        <div className="row mx-4 mx-lg-5 page-content h-100 mt-2 py-0 g-3">
           <div className="col-lg-9 h-100">
             <div className="facts-sm flex-column text-start text-white">
               <div className="d-flex">
-                <p className="pe-3">Production country:</p>
+                <p className="pe-3">
+                  <strong>Production country:</strong>
+                </p>
                 {countryFlag ? (
                   <img
                     src={countryFlag}
@@ -219,13 +221,13 @@ function Movie() {
                     alt="production country flag"
                   />
                 ) : (
-                  <p className="mb-0">Unknown production country</p>
+                  <p className="mb-0">Unknown</p>
                 )}
               </div>
 
               <div>
                 <p className="pe-3">
-                  Realease date:{" "}
+                  <strong>Realease date:</strong>{" "}
                   {Object.keys(movie).length > 0 &&
                     movie.release_date
                       .replace(/-/g, "/")
@@ -236,7 +238,7 @@ function Movie() {
               </div>
               <div>
                 <p className="pe-3">
-                  Genres:{" "}
+                  <strong>Genres:</strong>{" "}
                   {Object.keys(movie).length > 0 &&
                     movie.genres.map((genre, i) =>
                       i > 0 ? ", " + genre.name : genre.name
@@ -245,7 +247,9 @@ function Movie() {
               </div>
 
               <div>
-                <p className="pe-3">Runtime: {movieRuntime(movie.runtime)} </p>
+                <p className="pe-3">
+                  <strong>Runtime:</strong> {movieRuntime(movie.runtime)}{" "}
+                </p>
               </div>
               <div className="d-flex justify-content-between">
                 <div>

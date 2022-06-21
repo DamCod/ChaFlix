@@ -26,13 +26,13 @@ function MainNav({ setMovies, page, title, setTitle }) {
       fixed="top"
       className={nav && "active"}
     >
-      <Container fluid className="px-5 py-2">
+      <Container fluid className="px-md-5 px-sm-4 py-2">
         <Navbar.Brand href="/" className="text-danger fs-3 fw-bold">
           NotFlix
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="d-flex flex-row justify-content-center ms-auto fs-5">
+          <Nav className="d-flex flex-row justify-content-center ms-auto fs-5 mt-md-0 mt-sm-3">
             <SearchBar
               setMovies={setMovies}
               page={page}
