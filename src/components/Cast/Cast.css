@@ -25,9 +25,24 @@
   }
 }
 
-@media (max-width: 991px) {
+@media (max-width: 1199px) {
   .full-cast-card {
-    height: 330px;
+    height: 350px;
+  }
+  .full-cast-img {
+    max-height: 220px;
+  }
+}
+
+@media (max-width: 992px) {
+  .modal-xl {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 575px) {
+  .modal-xl {
+    max-width: 100%;
   }
 }
 
