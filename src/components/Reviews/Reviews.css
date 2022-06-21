@@ -9,6 +9,10 @@
   object-fit: cover;
 }
 
+.no-avatar {
+  display: flex;
+}
+
 @media (max-width: 767px) {
   .review-profile-pic {
     display: none;

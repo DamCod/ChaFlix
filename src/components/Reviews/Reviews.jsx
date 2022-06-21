@@ -92,7 +92,7 @@ function Reviews({ movieId }) {
                       />
                     </div>
                   ) : (
-                    <div className="d-flex align-items-center justify-content-center no-avatar review-profile-pic bg-secondary">
+                    <div className="align-items-center justify-content-center no-avatar review-profile-pic bg-secondary">
                       <i className="bi bi-person-fill fs-1"></i>
                     </div>
                   )}
