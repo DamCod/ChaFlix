@@ -92,7 +92,6 @@ div.poster-expand {
 
 .facts {
   display: flex;
-  align-items: center;
 }
 .facts-sm {
   display: none;
@@ -104,7 +103,6 @@ div.poster-expand {
   }
   .facts-sm {
     display: flex;
-    align-items: center;
   }
 }
 

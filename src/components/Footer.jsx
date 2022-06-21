@@ -69,7 +69,7 @@ function Footer() {
           </section>
         )}
         <section>
-          <p>
+          <p className="px-2">
             The information displayed on this site is courtesy of{" "}
             <a
               className="text-decoration-none"

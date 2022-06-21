@@ -42,7 +42,9 @@ function RecommendedMovies({ movieId }) {
 
   return (
     <>
-      <h3 className="mb-3 fs-4">Recommendations</h3>
+      <h3 className="mb-3 fs-4 text-md-center text-sm-start">
+        Recommendations
+      </h3>
       <Slide direction="right" triggerOnce={true}>
         <div className="recommendations-lg scroll px-3 rounded-3">
           {recommendedMovies

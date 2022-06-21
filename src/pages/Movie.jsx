@@ -207,35 +207,47 @@ function Movie() {
           </div>
         </div>
 
-        <div className="row mx-sm-4 page-content h-100 mt-2 py-0 g-3">
+        <div className="row mx-4 page-content h-100 mt-2 py-0 g-3">
           <div className="col-lg-9 h-100">
-            <div className="facts-sm flex-column text-start">
-              {countryFlag ? (
-                <img
-                  src={countryFlag}
-                  className="country img-fluid"
-                  alt="production country flag"
-                />
-              ) : (
-                <p className="mb-0">Unknown production country</p>
-              )}
+            <div className="facts-sm flex-column text-start text-white">
+              <div className="d-flex">
+                <p className="pe-3">Production country:</p>
+                {countryFlag ? (
+                  <img
+                    src={countryFlag}
+                    className="country img-fluid mt-1"
+                    alt="production country flag"
+                  />
+                ) : (
+                  <p className="mb-0">Unknown production country</p>
+                )}
+              </div>
 
-              <span className="release">
-                {Object.keys(movie).length > 0 &&
-                  movie.release_date
-                    .replace(/-/g, "/")
-                    .split("/")
-                    .reverse()
-                    .join("/")}
-              </span>
-              <span className="genres">
-                {Object.keys(movie).length > 0 &&
-                  movie.genres.map((genre, i) =>
-                    i > 0 ? ", " + genre.name : genre.name
-                  )}
-              </span>
-              <span className="runtime">{movieRuntime(movie.runtime)}</span>
-              <div className="justify-content-between">
+              <div>
+                <p className="pe-3">
+                  Realease date:{" "}
+                  {Object.keys(movie).length > 0 &&
+                    movie.release_date
+                      .replace(/-/g, "/")
+                      .split("/")
+                      .reverse()
+                      .join("/")}
+                </p>
+              </div>
+              <div>
+                <p className="pe-3">
+                  Genres:{" "}
+                  {Object.keys(movie).length > 0 &&
+                    movie.genres.map((genre, i) =>
+                      i > 0 ? ", " + genre.name : genre.name
+                    )}
+                </p>
+              </div>
+
+              <div>
+                <p className="pe-3">Runtime: {movieRuntime(movie.runtime)} </p>
+              </div>
+              <div className="d-flex justify-content-between">
                 <div>
                   <p className="text-start mt-3">
                     <strong>
@@ -266,6 +278,7 @@ function Movie() {
                   )}
                 </div>
               </div>
+              <hr className="my-5 bg-secondary" />
             </div>
             <Cast
               className="mt-4"
@@ -273,7 +286,7 @@ function Movie() {
               setWriter={setWriter}
               setDirector={setDirector}
             />
-            <hr className="mt-5 me-5 bg-secondary" />
+            <hr className="mt-5 me-lg-5 bg-secondary" />
             <Reviews movieId={params.id} />
           </div>
           <div className="col-lg-3 h-100">
