@@ -67,7 +67,7 @@ function Movie() {
             src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
             alt="background"
           />
-          <div className="row px-1 py-5 movie-details justify-content-between position-relative mt-5 gx-5">
+          <div className="row px-md-1 py-5 movie-details justify-content-between position-relative mt-5 gx-md-5">
             <div className="col-md-3 poster-img-container position-relative p-0 rounded-3 shadow">
               <img
                 className="poster-img img-fluid"
@@ -83,7 +83,7 @@ function Movie() {
                 </span>
               </div>
             </div>
-            <div className="col-md-9">
+            <div className="col-custom-9">
               <div className="d-flex flex-column">
                 <div className="d-flex align-items-center">
                   <h1 className="title text-start fs-2">
@@ -95,8 +95,14 @@ function Movie() {
                       )
                     </span>
                   </h1>
+                  <button
+                    onClick={() => setZoom(true)}
+                    className="btn btn-danger poster-btn"
+                  >
+                    <i class="bi bi-file-image"></i>
+                  </button>
                 </div>
-                <div className="d-flex align-items-center facts text-start">
+                <div className="facts align-items-center text-start">
                   {countryFlag ? (
                     <img
                       src={countryFlag}
@@ -166,9 +172,9 @@ function Movie() {
                 <strong>Overview</strong>
               </h3>
               <p className="fs-5 text-start">{movie.overview}</p>
-              <div className="d-flex">
+              <div className="facts justify-content-between">
                 <div>
-                  <p className="text-start mt-3 pe-5 me-5">
+                  <p className="text-start mt-3">
                     <strong>
                       {director.length > 0 && director[0].original_name}
                     </strong>
@@ -178,7 +184,7 @@ function Movie() {
                 </div>
                 <div>
                   {writer[0] && (
-                    <p className="text-start mt-3 pe-5 mx-5">
+                    <p className="text-start mt-3">
                       <strong>
                         {writer.length > 0 && writer[0].original_name}
                       </strong>
@@ -189,7 +195,7 @@ function Movie() {
                 </div>
                 <div>
                   {writer[1] && (
-                    <p className="text-start mt-3 ms-5">
+                    <p className="text-start mt-3">
                       <strong>{writer[1].original_name}</strong>
                       <br />
                       Writer
@@ -201,8 +207,66 @@ function Movie() {
           </div>
         </div>
 
-        <div className="row page-content h-100 mt-2 py-0 g-3">
+        <div className="row mx-sm-4 page-content h-100 mt-2 py-0 g-3">
           <div className="col-lg-9 h-100">
+            <div className="facts-sm flex-column text-start">
+              {countryFlag ? (
+                <img
+                  src={countryFlag}
+                  className="country img-fluid"
+                  alt="production country flag"
+                />
+              ) : (
+                <p className="mb-0">Unknown production country</p>
+              )}
+
+              <span className="release">
+                {Object.keys(movie).length > 0 &&
+                  movie.release_date
+                    .replace(/-/g, "/")
+                    .split("/")
+                    .reverse()
+                    .join("/")}
+              </span>
+              <span className="genres">
+                {Object.keys(movie).length > 0 &&
+                  movie.genres.map((genre, i) =>
+                    i > 0 ? ", " + genre.name : genre.name
+                  )}
+              </span>
+              <span className="runtime">{movieRuntime(movie.runtime)}</span>
+              <div className="justify-content-between">
+                <div>
+                  <p className="text-start mt-3">
+                    <strong>
+                      {director.length > 0 && director[0].original_name}
+                    </strong>
+                    <br />
+                    Director
+                  </p>
+                </div>
+                <div>
+                  {writer[0] && (
+                    <p className="text-start mt-3">
+                      <strong>
+                        {writer.length > 0 && writer[0].original_name}
+                      </strong>
+                      <br />
+                      Writer
+                    </p>
+                  )}
+                </div>
+                <div>
+                  {writer[1] && (
+                    <p className="text-start mt-3">
+                      <strong>{writer[1].original_name}</strong>
+                      <br />
+                      Writer
+                    </p>
+                  )}
+                </div>
+              </div>
+            </div>
             <Cast
               className="mt-4"
               movieId={params.id}
