@@ -202,7 +202,7 @@ function Reviews({ movieId }) {
             className="mt-3 rounded d-flex flex-column animate__animated animate__fadeIn"
           >
             <input
-              className="bg-dark border-bottom border-secondary w-25 text-white p-2"
+              className="bg-dark border-bottom border-secondary w-md-25 w-sm-50 text-white p-2"
               autoComplete="off"
               id="username"
               type="text"
