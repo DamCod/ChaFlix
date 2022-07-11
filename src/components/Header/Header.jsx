@@ -20,7 +20,7 @@ function Header({ movies }) {
                   <Carousel.Caption className="animate__animated animate__fadeInDown">
                     {movies[i].title.includes(":") ? (
                       <>
-                        <h4 className="movie-title">
+                        <h4 className="movie-title pb-1">
                           {movie.title.split(":")[0]}:
                         </h4>
                         <h4 className="movie-subtitle">

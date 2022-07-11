@@ -50,7 +50,7 @@ function Genres({ setMovies }) {
         ))}
       </div>
       <div className="genres-container-md">
-        <div className="ms-auto d-flex justify-content-end genre-selector mb-3">
+        <div className="d-flex justify-content-start genre-selector mb-3">
           <label
             className="text-white fs-4 fw-bold"
             htmlFor="inputGroupSelect01"

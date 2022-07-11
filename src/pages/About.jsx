@@ -23,9 +23,10 @@ function About() {
         buscador de películas, y una página para cada película mostrando
         detalles de la misma.
       </p>
-      <p className="h6 fw-bold mt-3">Powered by:</p>
-      <div className="techstack d-flex row border border-secondary rounded mt-3">
-        <div className="col col-md-4 col-xl-4 d-flex flex-column justify-content-start align-items-start fs-7">
+      <p className="h6 fw-bold mt-4">Powered by:</p>
+
+      <div className="techstack row ms-0 me-0 shadow rounded mt-3">
+        <div className="col-4 d-flex flex-column justify-content-start align-items-start fs-7">
           <p className="d-flex align-items-center my-3">
             <svg
               stroke="currentColor"
@@ -75,7 +76,7 @@ function About() {
             Postgres
           </p>
         </div>
-        <div className="col col-md-4 col-xl-4 d-flex flex-column justify-content-start align-items-start fs-7">
+        <div className="col-4 d-flex flex-column justify-content-start align-items-start fs-7">
           <p className="d-flex align-items-center my-3">
             <svg
               stroke="currentColor"
@@ -127,7 +128,7 @@ function About() {
             Sequelize
           </p>
         </div>
-        <div className="col col-md-4 col-xl-4 d-flex flex-column justify-content-start align-items-start fs-7">
+        <div className="col-4 d-flex flex-column justify-content-start align-items-start fs-7">
           <p className="d-flex align-items-center my-3">
             <svg
               stroke="currentColor"
@@ -161,40 +162,40 @@ function About() {
           </p>
         </div>
       </div>
+
       <p className="h6 fw-bold mt-5">Developed by:</p>
-      <div className="about-me d-flex">
-        <div className="d-flex align-items-center my-2">
-          <div>
-            <img
-              className="profile-pic fit-cover"
-              src={profilePic}
-              alt="Damián Cancela"
-            />
-            <div className="text-center mt-2">
-              <a
-                className="text-white link-linkedin"
-                href="https://www.linkedin.com/in/damian-cancela/"
-                target="_blank"
-              >
-                <i className="bi bi-linkedin link-linkedin fs-4 me-2 pointer"></i>
-              </a>
-              <a
-                className="text-white link-git"
-                href="https://github.com/DamCod"
-                target="_blank"
-              >
-                <i className="bi bi-github link-git fs-4 mx-2 pointer"></i>
-              </a>
-            </div>
+      <div className="about-me d-flex shadow rounded position-relative">
+        <div className="about-me-pic">
+          <img
+            className="profile-pic fit-cover"
+            src={profilePic}
+            alt="Damián Cancela"
+          />
+          <div className="text-center mt-2">
+            <a
+              className="text-white link-linkedin"
+              href="https://www.linkedin.com/in/damian-cancela/"
+              target="_blank"
+            >
+              <i className="bi bi-linkedin link-linkedin fs-4 me-2 pointer"></i>
+            </a>
+            <a
+              className="text-white link-git"
+              href="https://github.com/DamCod"
+              target="_blank"
+            >
+              <i className="bi bi-github link-git fs-4 mx-2 pointer"></i>
+            </a>
           </div>
         </div>
-        <div className="about-me-text-container border border-secondary rounded">
-          <p className="ms-5">
+        <div className="col-11 ms-5">
+          <p className="ms-5 pe-3">
             Mi nombre es Damián Cancela. Soy desarrollador de software con foco
             en JavaScript y un importante background en diseño. Mi preferencia
             es por el desarrollo front end, aunque me considero flexible y bien
             preparado para enfrentar cualquier desafío, tanto de back end como
-            de front end. Contáctame.
+            de front end. Estoy siempre en búsqueda de nuevas oportunidades para
+            seguir creciendo, no dudes en contactarme.
           </p>
         </div>
       </div>

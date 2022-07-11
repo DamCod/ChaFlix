@@ -3,17 +3,13 @@
   width: 17ch;
 }
 
-.genres-container-lg {
-  margin-top: -2rem;
-}
-
 @media (max-width: 1150px) {
   .genres-container-lg {
     display: none;
   }
 }
 
-@media (min-width: 1150px) {
+@media (min-width: 1151px) {
   .genres-container-md {
     display: none;
   }

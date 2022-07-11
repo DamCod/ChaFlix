@@ -29,10 +29,10 @@ function FilterByTitle({ title }) {
 
   return (
     <>
-      <div className="container-fluid mt-5">
+      <div className="container-fluid px-5 mt-5">
         <div className="row justify-content-center pt-5">
           {title ? (
-            <div className="row justify-content-center mt-4 g-4">
+            <div className="row g-2 justify-content-center mt-4">
               <Movies movies={movies} title={title} />
             </div>
           ) : (

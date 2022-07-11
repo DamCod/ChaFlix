@@ -2,6 +2,7 @@
   justify-content: center;
   align-items: center;
   margin-top: 8rem;
+  margin-bottom: 6rem;
 }
 
 .tmdb-logo {
@@ -10,8 +11,6 @@
 }
 
 .techstack {
-  margin-left: 2px;
-  margin-right: 2px;
   background-color: black;
   padding: 1rem;
 }
@@ -30,11 +29,23 @@
   color: #0a66c2;
 }
 
-.about-me-text-container {
+.about-me {
   background-color: black;
   padding: 1rem;
   height: 30%;
   margin-top: 2rem;
-  margin-left: -3rem;
-  z-index: -1;
+  margin-left: 4rem;
+}
+
+.about-me-pic {
+  position: absolute;
+  top: -20px;
+  left: -65px;
+}
+
+.powered-by-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
 }
