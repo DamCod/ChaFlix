@@ -2,7 +2,7 @@ import "./Reviews.css";
 import axios from "axios";
 import tmdbApiConfig from "../../tmdbApiConfig";
 import { useState, useEffect } from "react";
-import { Badge, Spinner } from "react-bootstrap";
+import { Spinner } from "react-bootstrap";
 import { styled } from "@mui/material/styles";
 import Rating from "@mui/material/Rating";
 import { useForm } from "react-hook-form";

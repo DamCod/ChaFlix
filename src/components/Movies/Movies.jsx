@@ -7,13 +7,13 @@ function Movies({ movies }) {
   const [isLoading, setIsLoading] = useState(true);
   return (
     <>
+      {isLoading && (
+        <div className="d-flex justify-content-center align-items-center w-100 h-100 loading-image rounded shadow my-5">
+          <Spinner animation="border" variant="danger" />
+        </div>
+      )}
       {movies.map((movie, i) => (
         <div key={i} className="movies">
-          {isLoading && (
-            <div className="d-flex justify-content-center align-items-center no-image loading-image rounded shadow">
-              <Spinner animation="border" variant="danger" />
-            </div>
-          )}
           <Link
             to={`/movies/${movie.id}`}
             className={`${isLoading && "d-none"} text-decoration-none`}
